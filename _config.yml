@@ -20,7 +20,7 @@ title                    : "Lee-JaeWon's Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Lee Jae Won"
-description              : "An amazing website."
+description              : "Tech Blogs to Study and Organize"
 url                      : "https://lee-jaewon.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -103,8 +103,8 @@ analytics:
 author:
   name             : "Lee Jae Won"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "I am a student of the School of **Robotics**."
+  location         : "Seoul, Republic of Korea"
   email            : "jawwoni@naver.com"
   links:
     - label: "Email"
