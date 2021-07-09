@@ -19,7 +19,7 @@ main:
   - title: Deep Learning
     children:
       - title: "2021_Deep Learning Study"
-        url: /Myposts-archive/Deep_Learning/
+        url: /Myposts-archive/Deep Learning/
       # - title: "Paper Review"
       #   url: /categories/Paper_Review/
       # - title: "Development Tip"
