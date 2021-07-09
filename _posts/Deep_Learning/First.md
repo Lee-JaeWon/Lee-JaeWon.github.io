@@ -1,7 +1,7 @@
 ---
 title : "Deep_Learning study Lec01-1 (pytorch)"
 category :
-    - Deep Learning
+    - Posts
 tag :
     - Deep_Learning
     - Boost Course
