@@ -6,6 +6,8 @@ main:
     url: /Aboutme/
   - title: "Posts"
     url: /Myposts/
+  - title: "Temp"
+    url: /temp/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
