@@ -6,8 +6,6 @@ main:
     url: /Aboutme/
   - title: "Posts"
     url: /Myposts/
-  - title: "Temp"
-    url: /temp/
 
 
 side:
