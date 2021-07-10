@@ -15,7 +15,7 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 
-  side:
+  docs:
   - title: Deep Learning
     children:
       - title: "2021_Deep Learning Study"
