@@ -8,23 +8,12 @@ main:
     url: /Myposts/
   - title: "Temp"
     url: /temp/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
 
-  docs:
+
+side:
   - title: Deep Learning
     children:
       - title: "2021_Deep Learning Study"
         url: /Myposts/Deep_Learning_Study/
       - title: "Deep Learning"
         url: /Myposts/Deep_Learning/
-      # - title: "Paper Review"
-      #   url: /categories/Paper_Review/
-      # - title: "Development Tip"
-      #   url: /categories/Computer_vision/
