@@ -1,9 +1,8 @@
 ---
 title: "2021 summer Deep_Learning Study"
-excerpt: "post.md"
 permalink: /Myposts/Deep_Learning_Study/
-layout: single
+layout: category
 toc: true
-tags: [About]
+tags: [Deep_Learning]
 
 ---
