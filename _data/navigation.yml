@@ -3,9 +3,9 @@ main:
   - title: "Quick-Start Guide"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About Me"
-    url: /Aboutme-archive/
+    url: /Aboutme/
   - title: "Posts"
-    url: /Myposts-archive/
+    url: /Myposts/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
@@ -19,7 +19,9 @@ main:
   - title: Deep Learning
     children:
       - title: "2021_Deep Learning Study"
-        url: /Myposts-archive/Deep Learning/
+        url: /Myposts/Deep_Learning_Study/
+      - title: "Deep Learning"
+        url: /Myposts/Deep_Learning/
       # - title: "Paper Review"
       #   url: /categories/Paper_Review/
       # - title: "Development Tip"
