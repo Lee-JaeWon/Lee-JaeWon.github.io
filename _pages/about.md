@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 excerpt: "about.md"
-permalink: /Aboutme-archive/
+permalink: /Aboutme/
 layout: single
 toc: true
 tags: [About]
