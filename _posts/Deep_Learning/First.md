@@ -11,3 +11,5 @@ comments: true
 ---
 
 ## Ready to post
+
+### how to commit
