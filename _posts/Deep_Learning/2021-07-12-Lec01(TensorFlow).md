@@ -18,8 +18,8 @@ Lec 01: 기본적인 Machine Learning 의 용어와 개념 설명
 > - 기본적인 머신러닝(Machine Learning)의 용어와 개념에 대해 알아본다.  
 
 ### Keyword
-- 머신러닝(Machine Learning)
-- 지도학습(Supervised Learning) / 비지도학습(Unsupervised Learning)
+> - 머신러닝(Machine Learning)
+> - 지도학습(Supervised Learning) / 비지도학습(Unsupervised Learning)
 
 ## 1. 강의 요약
 ### What is ML(Machine Learning)?
@@ -45,10 +45,34 @@ Learning with labled examples - training set
 
 레이블을 정해주기 어려운 경우라면 un-labeled data를 통해 모든 데이터를 학습하여 유사한 점들을 군집화 해주거나 관계등을 스스로 학습할 수 있다. 이렇게 비슷한 특징끼리 군집화 하여 새로운 데이터에 대한 결과를 예측하는 방법을 비지도학습 이라고 한다.
 
-- Training Data Set  
+### Training Data Set  
   
 Lable(Y)을 가지고 학습을 하면 모델이 생성된다. 이를 통해, 모르는 데이터인 X를 분류해주는 것이 일반적인 supervised 머신러닝의 예이다. 이 과정을 Training Set이라고 한다.  
-위 개념에 대한 고찰 : 그렇다면 머신러닝을 아직 실제 구현을 통해 접해보지는 않았지만, 아마도 머신러닝이라는 과정은 이 Data Set의 품질이 굉장히 중요할 것이라 예상된다.  
+위 개념에 대한 고찰 : 그렇다면 머신러닝을 아직 실제 구현을 통해 접해보지는 않았지만, 아마도 머신러닝이라는 과정은 이 Data Set의 품질이 굉장히 중요할 것이라 예상된다. 
+
+- AlphaGo  
+  
+알파고의 경우도 바둑 대국의 기보들(Training Data Set)을 모두 학습하여 새로운 경우(새로운 대국)에서 학습한 데이터 모델을 기반으로 대국을 진행한다(Supervised Learning).
+
+### Types of supervised learning  
+
+- Regression  
+=> 회귀  
+
+데이터들의 특징을 기준으로, 어떠한 값들의 패턴(시험 점수)나 그 경향, 트렌드 등을 예측할 때 사용된다. 그렇기에 어떤 수나 실수 형태로 예측될 수 있다.
+
+ex) 시간(데이터의 특징, 분류기준)에 따른 점수의 경향(주어진 데이터)을 학습하여 시간을 대입하면 점수를 예측할 수 있다.
+
+- Pass/non-pass  
+
+1, 0 / 패스, 논패스로 분류한다.
+
+- Letter Grade
+
+이 또한, 주어진 등급들에 따라 분류한다.(Multi-lable classification)
+
+
+
 
 
 
