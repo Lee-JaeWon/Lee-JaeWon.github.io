@@ -8,6 +8,4 @@ tags: [About]
 
 ---
 
-# Ready
-## to
-### post
+# Ready to post
