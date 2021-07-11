@@ -1,7 +1,7 @@
 ---
 title : "Deep_Learning study Lec01-1 (pytorch)"
 category :
-    - 2021_Deep Learning Study
+    - Deep_Learning_Study
 tag :
     - Deep_Learning
     - Boost Course
