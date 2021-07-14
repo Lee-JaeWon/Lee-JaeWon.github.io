@@ -8,10 +8,9 @@ main:
     url: /Myposts/
 
 
-side:
+docs:
   - title: Deep Learning
     children:
-      - title: "2021_Deep Learning Study"
-        url: /Myposts/Deep_Learning_Study/
-      - title: "Deep Learning"
-        url: /Myposts/Deep_Learning/
+      - title: "Deep Learning Study"
+        url: /_pages/Deep_Learning_Study/
+
