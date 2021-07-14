@@ -60,7 +60,7 @@ Cost function은 동일하다.
 (5by3 * 3by1 = 5by1)  
 
 x항들의 Matrix를 X, w(가중치)항들의 Matrix를 W라고 하여, H(X)를 간단하게 표현할 수 있다.(대문자로 표현)
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125645147-fef2a51e-f450-4c4f-950a-245404f2108b.png" width = "300" ></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125645147-fef2a51e-f450-4c4f-950a-245404f2108b.png" width = "200" ></p>  
 여기서는 X를 앞에, W를 뒤에 쓰고 있다.  
 (행과 열을 계산하기 때문에 X matrix가 앞에 오게 된다.)  
 
@@ -170,14 +170,82 @@ Epoch   18/20 hypothesis: tensor([152.7999, 183.6688, 180.9644, 197.0661, 140.09
 Epoch   19/20 hypothesis: tensor([152.8014, 183.6715, 180.9665, 197.0686, 140.0985]) Cost: 1.619764
 Epoch   20/20 hypothesis: tensor([152.8020, 183.6731, 180.9677, 197.0699, 140.0999]) Cost: 1.619046
 ```
-다음과 같으며, Cost가 적절히 최소화 되는 것을 확인할 수 있다.
+다음과 같으며, Cost가 적절히 최소화 되는 것을 확인할 수 있다.  
 
+## 3. nn.Module
+모델이 커질수록 W와 b를 일일이 써주는 것은 번거로운 일이 될 수 있다.  
 
+그래서 Pytorch에서는 nn.Module이라는 편리한 모듈을 제공한다.  
+- 단순히 nm.Linear의 입력 차원과 출력 차원을 알려주고, Hypothesis만 어떻게 계산하는지 알려주면 된다.  
 
+또한, Pytorch에서는 다양한 Cost function을 제공한다.  
 
+### Full code
+```python
+import torch
+from torch import optim
+import torch.nn as nn
+import torch.nn.functional as F
 
+class MultivariateLinearRegressionModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear = nn.Linear(3, 1)
+    def forward(self, x):
+        return self.linear(x)
 
+# 데이터
+x_train = torch.FloatTensor([[73, 80, 75],
+                             [93, 88, 93],
+                             [89, 91, 90],
+                             [96, 98, 100],
+                             [73, 66, 70]])
+y_train = torch.FloatTensor([[152], [185], [180], [196], [142]])
+# 모델 초기화
+model = MultivariateLinearRegressionModel()
+# optimizer 설정
+optimizer = optim.SGD(model.parameters(), lr=1e-5)
 
+nb_epochs = 20
+for epoch in range(nb_epochs + 1):
 
+    # H(x) 계산
+    Hypothesis = model(x_train)
+    # cost 계산
+    cost = F.mse_loss(Hypothesis, y_train)
+    # cost로 H(x) 개선
+    optimizer.zero_grad()
+    cost.backward()
+    optimizer.step()
+    print('Epoch {:4d}/{} hypothesis: {} Cost: {:.6f}'.format(
+    epoch, nb_epochs, Hypothesis.squeeze().detach(),
+    cost.item()
+    ))
+```  
+위 코드를 살펴보면 cost function과 모델 초기화 부분이 간단해짐을 확인할 수 있다.
 
-
+### Result
+결과는 다음과 같다.   
+```
+Epoch    0/20 hypothesis: tensor([-20.2702, -20.0977, -22.2014, -22.2739, -15.7411]) Cost: 37030.648438
+Epoch    1/20 hypothesis: tensor([54.8801, 70.2273, 66.7974, 74.6434, 53.1542]) Cost: 11608.172852
+Epoch    2/20 hypothesis: tensor([ 96.9540, 120.7969, 116.6246, 128.9039,  91.7261]) Cost: 3639.578613
+Epoch    3/20 hypothesis: tensor([120.5097, 149.1090, 144.5210, 159.2823, 113.3211]) Cost: 1141.846069
+Epoch    4/20 hypothesis: tensor([133.6976, 164.9599, 160.1391, 176.2901, 125.4114]) Cost: 358.939850
+Epoch    5/20 hypothesis: tensor([141.0811, 173.8342, 168.8832, 185.8121, 132.1803]) Cost: 113.539940
+Epoch    6/20 hypothesis: tensor([145.2149, 178.8026, 173.7787, 191.1431, 135.9700]) Cost: 36.620201
+Epoch    7/20 hypothesis: tensor([147.5292, 181.5842, 176.5195, 194.1277, 138.0917]) Cost: 12.509958
+Epoch    8/20 hypothesis: tensor([148.8250, 183.1415, 178.0540, 195.7986, 139.2796]) Cost: 4.952663
+Epoch    9/20 hypothesis: tensor([149.5504, 184.0134, 178.9131, 196.7341, 139.9446]) Cost: 2.583749
+Epoch   10/20 hypothesis: tensor([149.9566, 184.5015, 179.3941, 197.2579, 140.3170]) Cost: 1.841201
+Epoch   11/20 hypothesis: tensor([150.1840, 184.7748, 179.6634, 197.5510, 140.5254]) Cost: 1.608399
+Epoch   12/20 hypothesis: tensor([150.3113, 184.9278, 179.8142, 197.7152, 140.6422]) Cost: 1.535396
+Epoch   13/20 hypothesis: tensor([150.3826, 185.0134, 179.8986, 197.8071, 140.7075]) Cost: 1.512442
+Epoch   14/20 hypothesis: tensor([150.4226, 185.0614, 179.9459, 197.8585, 140.7441]) Cost: 1.505226
+Epoch   15/20 hypothesis: tensor([150.4449, 185.0882, 179.9723, 197.8872, 140.7646]) Cost: 1.502907
+Epoch   16/20 hypothesis: tensor([150.4575, 185.1032, 179.9872, 197.9033, 140.7761]) Cost: 1.502131
+Epoch   17/20 hypothesis: tensor([150.4645, 185.1116, 179.9955, 197.9123, 140.7826]) Cost: 1.501850
+Epoch   18/20 hypothesis: tensor([150.4685, 185.1163, 180.0001, 197.9173, 140.7862]) Cost: 1.501715
+Epoch   19/20 hypothesis: tensor([150.4707, 185.1189, 180.0027, 197.9201, 140.7882]) Cost: 1.501623
+Epoch   20/20 hypothesis: tensor([150.4720, 185.1204, 180.0042, 197.9217, 140.7894]) Cost: 1.501550
+```
