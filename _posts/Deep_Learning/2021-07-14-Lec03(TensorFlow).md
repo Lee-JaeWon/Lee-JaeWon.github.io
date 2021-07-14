@@ -42,7 +42,7 @@ Lec 03: Linear Regression and How to minimize cost
 Cost 함수가 실제로 어떠한 형태로 이루어져있는지 살펴보기 위해
 W값을 변화시켜가며 Cost를 살펴보자.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125599509-8e3ce456-9c1f-408c-a4a3-f3e75670314e.png" width = "400" ></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125599509-8e3ce456-9c1f-408c-a4a3-f3e75670314e.png" width = "200" ></p>
 
 위의 데이터에서
 m = 3
@@ -56,7 +56,7 @@ m = 3
     cost(W) = 18.67
 
 이 값들을 그래프로 표현하면,  
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125599856-1748cf3f-48e7-4367-8ecb-4d43843a8228.png" width = "400" ></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125599856-1748cf3f-48e7-4367-8ecb-4d43843a8228.png" width = "300" ></p>
 
 와 같이 나타낼 수 있고, 이를 더 조밀하게 나타내보면
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/125600081-0a730a4c-e6d1-4874-942c-f7ba0d89afa3.png" width = "400" ></p>
