@@ -46,13 +46,13 @@ W값을 변화시켜가며 Cost를 살펴보자.
 
 위의 데이터에서
 m = 3
-- W = 0 일 때, cost(W) = ?
+- W = 0 일 때, cost(W) = ?  
     cost(W) = 4.67
-- W = 1 일 때, cost(W) = ?
+- W = 1 일 때, cost(W) = ?  
     cost(W) = 0
-- W = 2 일 때, cost(W) = ?
+- W = 2 일 때, cost(W) = ?  
     cost(W) = 4.67
-- W = 3 일 때, cost(W) = ?
+- W = 3 일 때, cost(W) = ?  
     cost(W) = 18.67
 
 이 값들을 그래프로 표현하면,  
