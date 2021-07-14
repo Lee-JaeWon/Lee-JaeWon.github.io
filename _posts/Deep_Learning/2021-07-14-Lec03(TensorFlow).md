@@ -74,7 +74,8 @@ m = 3
 이보다 더 많을때도 사용할 수 있는 알고리즘이다.
 
 이에 더해, 왜 경사하강법을 사용하는지에 대해 다뤄보자면,
-그냥 미분 계수가 0인 지점을 찾을 수도 있지만, 함수가 닫힌 형태가 아닌 경우, 미분 계수를 구하기 어려운 함수의 형태일 경우
+그냥 미분 계수가 0인 지점을 찾을 수도 있지만, 함수가 닫힌 형태가 아닌 경우, 미분 계수를 구하기 어려운 함수의 형태일 경우  
+
 GD를 구현하는게 미분 계수를 구하는 것보다 더 쉬운 경우를 대표적으로 예를 들 수 있다.
 
 혹은 데이터 양이 많은 경우 효율적으로 계산하기 위함도 있다.
@@ -122,11 +123,12 @@ Cost function을 W에 대해 미분(편미분)해주고 Learning rate를 곱해�
 최종 요약하자면, Cost function을 1/m에서 1/2m으로 바꿔주고, 이를 미분한 값에 Learning Rate를 곱한 후 W에서 이를 빼준 값을 W에 assign 하는 과정을 반복하며 Cost가 최소화 하도록 한다.
 
 ### Convex function
-Local minimum과 Global minimum이 일치하지 않는 복잡한 함수의 경우일 때, 가장 낮은 지점으로 도달할 수 있을 것이라는 보장을 할 수 없다.
+Local minimum과 Global minimum이 일치하지 않는 복잡한 함수의 경우일 때, 가장 낮은 지점으로 도달할 수 있을 것이라는 보장을 할 수 없다.  
+
 이러한 경우에서는 Gradient Descent를 사용할 수 없다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/125616206-75d9efde-9233-45df-8fc4-77aadd635890.png" width = "400" ></p>
-그래서 Local minimum과 Global minimum이 일치하는 Convex function에서 사용하게 된다.
+그래서 Local minimum과 Global minimum이 일치하는 Convex function에서 사용하게 된다.  
 Cost function이 Convex function(볼록 함수)이라면 항상 최저점에 도착한다는 것을 보장할 수 있기 때문에 Gradient Descent 알고리즘을 적절히 사용할 수 있다.
 
 
