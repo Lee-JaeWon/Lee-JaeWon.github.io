@@ -6,4 +6,4 @@ author_profile: true
 toc: true
 ---
 
-## Ready to post
+2021_summer BoostCouse를 통한 Deep_Learning study 입니다.
