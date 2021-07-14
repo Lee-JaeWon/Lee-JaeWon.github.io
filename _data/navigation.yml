@@ -8,7 +8,7 @@ main:
     url: /Myposts/
 
 
-docs:
+side:
   - title: Deep Learning
     children:
       - title: "Deep Learning Study"
