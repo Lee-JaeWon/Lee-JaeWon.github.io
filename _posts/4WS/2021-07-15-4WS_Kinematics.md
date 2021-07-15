@@ -1,5 +1,5 @@
 ---
-title : "4 Wheel steering Kinematics"
+title : "4 Wheel Steering Kinematics"
 category :
     - 4WS
 tag :
