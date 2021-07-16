@@ -39,7 +39,7 @@ comments: true
 
 #### Negative Four Wheel Steering System
 
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125957929-f841b5c7-059e-427d-91ed-60c790b51107.png" width = "400" ></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125989954-8e77f9f0-b733-41da-89ca-4955664b6c1d.png" width = "400" ></p>  
 다음과 같이 동작하는 것이 Negative Type이다.  
 
 위의 조향 시스템에 대한 방정식은 아래의 방정식에서 도출된다.  
@@ -85,5 +85,9 @@ c1, c2는 각각 차체 길이의 절반이 되기 때문에
 위에서 사용했던 방정식들이 간단하게 해결될 수 있다.
 
 하지만 두 방식에서 여전히 문제가 되는것은, 사용자가 원하는 각도(ex, 핸들을 통한 각도)를 어떻게 반영하느냐 이다.
+
+#### About Velocity
+
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125990055-98863373-a8bf-4512-ad1f-222d8a87ec4f.png" width = "400" ></p> 
 
 
