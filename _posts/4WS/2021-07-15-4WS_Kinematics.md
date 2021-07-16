@@ -43,7 +43,7 @@ comments: true
 다음과 같이 동작하는 것이 Negative Type이다.  
 
 위의 조향 시스템에 대한 방정식은 아래의 방정식에서 도출된다.  
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125977147-30db0e5f-db5c-4aa8-bedc-a61fc831b02c.png" width = "400" ></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/125977147-30db0e5f-db5c-4aa8-bedc-a61fc831b02c.png" width = "200" ></p>  
 
 즉, w_sub_f(r)는 상수이므로, C1 혹은 C2에 대한 정보가 필요하다.
 
