@@ -63,7 +63,7 @@ comments: true
 다음의 방정식들을 통해 원하는 정보를 얻어낼 것이다.
 
 위 식들은 Ackerman condition에서 차체의 폭과 길이간의 비율은  
-cot(조향 각)의 차이와 같다는 식에서 파생되었다.
+cot(조향 각)의 차이와 같다는 식에서 파생되었다.  
 (The difference of the cotangents of the angles of the front outer to the inner wheels should be equal to the ratio of width and length of the vehicle)  
 
 식(20)에서 W와 l은 알고 있는 상수이다.  
