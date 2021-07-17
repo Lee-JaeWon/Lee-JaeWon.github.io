@@ -10,14 +10,18 @@ toc_sticky: true
 comments: true
 ---
 
+4 Wheel Steering Kinematics
+
 ## Goal of Drive
 4개의 Wheel을 모두 조향하여 주행하는 것이 목표이다.
 
 이를 위한 Kinematics Model을 살펴,  
 사용자가 속력과 방향을 제시할 때, 각 바퀴에 해당하는 조향각과 모터 속도에 따라 작동해야하는 것이 목표다.  
 
-### Ackerman condition for a front wheel steering system
-[살펴보고 있는 자료]()에서는 먼저 앞바퀴가 조향하는 Ackerman condition의 자료를 인용하여 이를 먼저 설명한다.
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126025383-67d4572a-6669-4dae-adbe-4183fee92262.png" width = "400" ></p>
+
+### Ackerman condition for a front wheel steering system(FWS)
+먼저 앞바퀴가 조향하는 [Ackerman condition의 자료](https://link.springer.com/chapter/10.1007%2F978-0-387-74244-1_7)를 인용하여 이를 먼저 설명한다.
 
 ### Space Required for Turning
 회전에 필요한 공간은 두 원 밖으로 나가지 않도록 하는 공간이다.  
@@ -27,8 +31,7 @@ comments: true
 
 위 두 원에 관한 식은 다음과 같다.  
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/125957580-c22720c1-bf6d-4ace-8e2c-ece26422c5bf.png" width = "300" ></p>
-
-이 R에 관한 식에 뒷부분에서 사용된다.  
+  
 
 ### Four wheel Steering Types
 4륜 스티어링 구성에는 두 가지 유형이 있다.  
@@ -74,7 +77,7 @@ c1을 통해 c2를 알 수 있으므로, 식(16)을 통해 뒷 바퀴의 조향�
 #### Symmetric Four Wheel Steering System
 위 시스템을 대칭 시스템으로 할 수 있다.  
 
-이 시스템의 장점은 동일한 각도로 회전한다는 것이다.
+이 시스템의 장점은 안쪽은 안쪽끼리 바깥쪽은 바깥쪽끼리 동일한 각도로 회전한다는 것이다.
 
 그러므로, 위에서 결정하지 못했던 회전 반경에 관한 사항들을 결정할 수 있다.  
 
@@ -86,8 +89,33 @@ c1, c2는 각각 차체 길이의 절반이 되기 때문에
 
 하지만 두 방식에서 여전히 문제가 되는것은, 사용자가 원하는 각도(ex, 핸들을 통한 각도)를 어떻게 반영하느냐 이다.
 
-#### About Velocity
+### About Velocity
+결론적으로 위의 조향 방식과 적절한 속도를 이용하여, 회전하는데 있어 안정적이어야 한다.
+
+우리가 운전할때도 알 수 있듯이 보통 커브를 해야하는 상황에서는 진입 시 속도를 낮춰야한다.
+
+마찬가지로 4WS System이 회전하는 상황에서 탈조하지 않을 적절한 Speed를 찾아야한다.  
+
+간단한 전방-후방 움직임 동안 모든 휠은 미끄러짐을 방지하기 위해 정확히 동일한 속도로 움직여야 하며, 휠 속도 간의 순간적인 불일치로 인해 휠이 미끄러지거나 예상치 못하게 미끄러질 수 있기에 중요한 사항이다.  
 
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/125990055-98863373-a8bf-4512-ad1f-222d8a87ec4f.png" width = "400" ></p> 
 
+안 쪽 wheel이 바깥 쪽 wheel 보다 느려야한다.(회전반경 기준)
+
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026004-87710b87-33ea-41e0-a3a3-0209df5cf11e.png" width = "400" ></p>
+
+다음과 같은 식으로 표현된다.
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026335-0dfcc386-3fe4-427d-a0be-c1ba48d30a89.png" width = "200" ></p>
+
+속도는 다음과 같이 벡터로 합쳐 표현할 수 있으며, w는 angular velocity이다.  
+I = 1,2,3,4 는 휠의 중앙으로 부터의 기하학적 Point들이다.
+
+이를 y축에 정사영하면 다음을 얻는다.  
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026514-83e7bdf1-b248-48a6-bcef-bd8acc47ffd7.png" width = "200" ></p>
+
+대칭 조향 상황에서 전방 휠과 후방휠의 속도의 크기는 같아야한다.
+
+이들의 평균을 얻을 수 있다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026684-e4942bec-3252-4a64-97bc-f1bb0f930b03.png" width = "200" ></p>
 
