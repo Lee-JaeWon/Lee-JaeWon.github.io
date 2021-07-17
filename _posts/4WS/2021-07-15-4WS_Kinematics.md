@@ -23,6 +23,7 @@ comments: true
 ### Ackerman condition for a front wheel steering system(FWS)
 먼저 앞바퀴가 조향하는 [Ackerman condition의 자료](https://link.springer.com/chapter/10.1007%2F978-0-387-74244-1_7)를 인용하여 이를 먼저 설명한다.
 
+### Turning Radius
 일반적인 vehicle에서 회전하는 경우를 살펴보면 각각의 바퀴각의 평균을 이용해 R값을 구하는 것을 확인할 수 있다.  
 
 이 개념은 4WS에서도 사용할 것이다.
