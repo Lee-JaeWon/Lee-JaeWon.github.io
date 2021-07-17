@@ -96,7 +96,7 @@ c1, c2는 각각 차체 길이의 절반이 되기 때문에
 
 마찬가지로 4WS System이 회전하는 상황에서 탈조하지 않을 적절한 Speed를 찾아야한다.  
 
-간단한 전방-후방 움직임 동안 모든 휠은 미끄러짐을 방지하기 위해 정확히 동일한 속도로 움직여야 하며, 휠 속도 간의 순간적인 불일치로 인해 휠이 미끄러지거나 예상치 못하게 미끄러질 수 있기에 중요한 사항이다.  
+간단한 전방-후방 움직임 동안 모든 휠은 미끄러짐을 방지하기 위해 정확히 동일한 속도로 움직여야 하며, 휠 속도 간의 순간적인 불일치로 인해 휠이 미끄러지거나 예상치 못하게 미끄러질 수 있기에 제어에 있어 중요한 사항이다.  
 
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/125990055-98863373-a8bf-4512-ad1f-222d8a87ec4f.png" width = "400" ></p> 
 
@@ -113,9 +113,12 @@ I = 1,2,3,4 는 휠의 중앙으로 부터의 기하학적 Point들이다.
 이를 y축에 정사영하면 다음을 얻는다.  
 <p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026514-83e7bdf1-b248-48a6-bcef-bd8acc47ffd7.png" width = "200" ></p>
 
-대칭 조향 상황에서 전방 휠과 후방휠의 속도의 크기는 같아야한다.
+대칭 조향 상황에서 전방 휠과 후방 휠의 속도의 크기는 같아야한다.
 
-이들의 평균을 얻을 수 있다.
+<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126027111-4d253a6b-dfca-4f25-ad67-9af89ea15c93.png" width = "200" ></p>
 
-<p align="center"><img src="https://user-images.githubusercontent.com/72693388/126026684-e4942bec-3252-4a64-97bc-f1bb0f930b03.png" width = "200" ></p>
+그러므로, 다음과 같은 과정을 통해 각각의 V값을 알아낼 수 있다.
 
+결론적으로, 각속도가 필요하다.  
+각속도는 순간 각속도의 개념을 이용해 구해야할 듯 하다.
+(대칭 조향 시스템에서 각도는 알 수 있기 때문?)
