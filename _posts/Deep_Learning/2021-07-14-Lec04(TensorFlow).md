@@ -1,5 +1,5 @@
 ---
-title : "Deep_Learning study Lec04 (TensorFlow)"
+title : "Lec 04: Multi-variable Linear Regression"
 category :
     - Deep_Learning_Study
 tag :
@@ -10,7 +10,7 @@ toc_sticky: true
 comments: true
 ---
 
-Lec 04: Multi-variable Linear Regression
+Deep_Learning study Lec04 (TensorFlow)
 
 ## Boostcourse의 '파이토치, 텐서플로우로 시작하는 딥러닝 기초'를 통한 공부와 정리 Post
 

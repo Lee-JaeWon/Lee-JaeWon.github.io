@@ -1,5 +1,5 @@
 ---
-title : "Deep_Learning study Lec01 (TensorFlow)"
+title : "Lec 01: 기본적인 Machine Learning 의 용어와 개념 설명"
 category :
     - Deep_Learning_Study
 tag :
@@ -10,7 +10,7 @@ toc_sticky: true
 comments: true
 ---
 
-Lec 01: 기본적인 Machine Learning 의 용어와 개념 설명
+Deep_Learning study Lec01 (TensorFlow)
 
 ## Boostcourse의 '텐서플로우로 시작하는 딥러닝 기초'를 통한 공부와 정리 Post
 
