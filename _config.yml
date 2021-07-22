@@ -43,6 +43,7 @@ comments:
   utterances:
     theme                : "github-light" # "github-light" (default), "github-dark"
     issue_term           : "title" # "pathname" (default)
+    label                : "✨💬comments✨"
   giscus:
     repo_id              : # Shown during giscus setup at https://giscus.app
     category_name        : # Full text name of the category
