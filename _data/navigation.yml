@@ -1,7 +1,5 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About Me"
     url: /Aboutme/
   - title: "Posts"
@@ -13,4 +11,7 @@ side:
     children:
       - title: "Deep Learning Study"
         url: /Myposts/Deep_Learning_Study/
+
+# - title: "Quick-Start Guide"
+#     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
 
