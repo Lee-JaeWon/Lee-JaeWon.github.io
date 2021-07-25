@@ -291,7 +291,6 @@ defaults:
       toc_sticky: true
       mathjax: true
       sidebar_main: true
-      
       # sidebar:  
       #   nav: "side"
         
