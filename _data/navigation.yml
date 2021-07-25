@@ -13,7 +13,7 @@ side:
   - title: Algorithm
     children:
       - title: "Algorithm Problem"
-        url: /Myposts/Deep_Learning_Study/      
+        url: /Myposts/Algorithm_Problem/ 
 
 # - title: "Quick-Start Guide"
 #     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
