@@ -10,6 +10,10 @@ side:
     children:
       - title: "Deep Learning Study"
         url: /Myposts/Deep_Learning_Study/
+  - title: Algorithm
+    children:
+      - title: "Algorithm Problem"
+        url: /Myposts/Deep_Learning_Study/      
 
 # - title: "Quick-Start Guide"
 #     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
