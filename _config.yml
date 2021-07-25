@@ -291,8 +291,9 @@ defaults:
       toc_sticky: true
       mathjax: true
       sidebar_main: true
-      sidebar:  
-        nav: "side"
+      
+      # sidebar:  
+      #   nav: "side"
         
   # _pages
   - scope:
@@ -305,5 +306,5 @@ defaults:
       comments: false
       share: true
       related: false
-      sidebar:  
-        nav: "side"
+      # sidebar:  
+      #   nav: "side"
