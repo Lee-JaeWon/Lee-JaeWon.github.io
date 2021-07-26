@@ -2,18 +2,18 @@ main:
   - title: "About Me"
     url: /Aboutme/
   - title: "Posts"
-    url: /Myposts/
+    url: /categories/
 
 
 side:
   - title: Deep Learning
     children:
       - title: "Deep Learning Study"
-        url: /Myposts/Deep_Learning_Study/
+        url: /categories/Deep_Learning_Study/
   - title: Algorithm
     children:
       - title: "Algorithm Problem"
-        url: /Myposts/Algorithm_Problem/ 
+        url: /categories/Algorithm_Problem/ 
 
 # - title: "Quick-Start Guide"
 #     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/

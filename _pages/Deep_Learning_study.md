@@ -1,10 +1,10 @@
 ---
 title: "2021 summer Deep_Learning Study"
-permalink: /Myposts/Deep_Learning_Study/
+permalink: /categories/Deep_Learning_Study/
 layout: category
 author_profile: true
 toc: true
-# sidebar_main: true
+sidebar_main: true
 taxonomy: Deep_Learning_Study
 ---
 

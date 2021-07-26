@@ -1,7 +1,7 @@
 ---
 title: "My Posts"
 layout: categories
-permalink: /Myposts/
+permalink: /categories/
 toc: true
 author_profile: true
 ---
