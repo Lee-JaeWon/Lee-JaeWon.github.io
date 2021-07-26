@@ -290,7 +290,7 @@ defaults:
       toc_ads: true
       toc_sticky: true
       mathjax: true
-      # sidebar_main: true
+      sidebar_main: true
       sidebar:  
         nav: "side"
         
@@ -305,5 +305,9 @@ defaults:
       comments: false
       share: true
       related: false
+      toc_ads: true
+      toc_sticky: true
+      mathjax: true
+      sidebar_main: true
       sidebar:  
         nav: "side"
