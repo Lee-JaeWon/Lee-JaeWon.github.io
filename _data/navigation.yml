@@ -6,10 +6,12 @@ main:
 
 
 side:
-  - title: Deep Learning
+  - title: Machine Learning
     children:
-      - title: "Deep Learning Study"
+      - title: "Deep Learning"
         url: /categories/Deep_Learning_Study/
+      - title: "Reinforcement Learning"
+        url: /categories/Reinforcement_Learning/
   - title: Algorithm
     children:
       - title: "Algorithm Problem"
