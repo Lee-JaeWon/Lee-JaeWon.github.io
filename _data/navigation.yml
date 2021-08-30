@@ -12,6 +12,8 @@ side:
         url: /categories/Deep_Learning_Study/
       - title: "Reinforcement Learning"
         url: /categories/Reinforcement_Learning/
+      - title: "Research"
+        url: /categories/Research/
   - title: Algorithm
     children:
       - title: "Algorithm Problem"

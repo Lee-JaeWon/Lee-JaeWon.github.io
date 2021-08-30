@@ -25,9 +25,17 @@
                     {% if category[0] == "Reinforcement_Learning" %}
                         <li><a href="/categories/Reinforcement_Learning" class="">Reinforcement Learning ({{category[1].size}})</a></li>
                     {% endif %}
+
+                    <!--{% if category[0] == "Research" %}-->
+                        <!--<li><a href="/categories/Research" class="">Research ({{category[1].size}})</a></li>-->
+                    <!--{% endif %}-->
+
+
                 {% endfor %}
 
             </ul>
+
+        <!--Algorithm 관련 카테고리 입니다.-->
         <span class="nav__sub-title">Algorithm</span>
             <ul>
                 {% for category in site.categories %}
@@ -35,7 +43,19 @@
                         <li><a href="/categories/Algorithm_Problem" class="">Algorithm PS ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>    
+            </ul>
+
+        <!--Project 관련 카테고리 입니다.-->
+        <span class="nav__sub-title">Project</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Unity_ML-Agents" %}
+                        <li><a href="/categories/Unity_ML-Agents" class="">Unity : ML-Agents ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+
         </li>
     </ul>
 </nav>
