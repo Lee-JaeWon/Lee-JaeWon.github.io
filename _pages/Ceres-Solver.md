@@ -5,5 +5,5 @@ layout: category
 author_profile: true
 toc: true
 sidebar_main: true
-taxonomy: ceres_solver
+taxonomy: Ceres_Solver
 ---

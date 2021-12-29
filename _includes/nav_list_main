@@ -65,6 +65,15 @@
                 {% endfor %}
             </ul>
 
+        <span class="nav__sub-title">Ubuntu</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Ubuntu" %}
+                        <li><a href="/categories/Ubuntu" class="">Ubuntu ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
 
         </li>
     </ul>
