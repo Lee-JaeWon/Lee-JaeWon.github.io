@@ -58,7 +58,29 @@ wlx705dccff1daf: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
 ```
 <br><br>
 
+## Iptime A3000U, Kernel Version 5.11
+커널 버전을 업그레이드 해줬더니 위의 방법은 또 에러가 나고, 작동하지 않는다.<br><br>
+이 때, 다시 아래의 방법으로 시도해주자.<br>
+(위의 방법은 커널 5.4에서 진행했었다.)
 
+```
+$ git clone https://github.com/cilynx/rtl88x2bu.git
+
+$ cd rtl88x2bu
+
+$ VER=$(sed -n 's/\PACKAGE_VERSION="\(.*\)"/\1/p' dkms.conf)
+
+$ sudo rsync -rvhP ./ /usr/src/rtl88x2bu-${VER}
+
+$ sudo dkms add -m rtl88x2bu -v ${VER}
+
+$ sudo dkms build -m rtl88x2bu -v ${VER}
+
+$ sudo dkms install -m rtl88x2bu -v ${VER}
+
+$ sudo modprobe 88x2bu
+```
+and reboot<br><br><br>
 📣<br>
 본 포스팅의 언어 및 개발 환경 : `C++`, `Ubuntu 18.04.6 LTS`, `Ubuntu 20.04.3 LTS`  
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
