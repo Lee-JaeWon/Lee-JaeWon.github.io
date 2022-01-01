@@ -60,7 +60,7 @@ reboot후 다시 명령어를 통해 커널 버전을 확인해주면 된다.<br
 
 ## Iptime A3000U 오류
 18.04.6 LTS에서 [Iptime A3000U를 사용할 수 있도록하는 방법을 포스팅](https://lee-jaewon.github.io/ubuntu/Ubuntu_set/)했었는데,<br><br>
-커널 버전 올려주니 또 먹통이 되어, [Iptime A3000U 설치 포스팅에서 커널 버전 올린 내용]()으로 다시 참고해주길 바란다.<br><br>
+커널 버전 올려주니 또 먹통이 되어, [Iptime A3000U 설치 포스팅에서 커널 버전 올린 내용](https://lee-jaewon.github.io/ubuntu/Ubuntu_set/#iptime-a3000u-kernel-version-511)으로 다시 참고해주길 바란다.<br><br>
 
 📣<br>
 본 포스팅의 언어 및 개발 환경 : `Ubuntu 18.04.6 LTS` or `Ubuntu 20.04.3 LTS`<br>
