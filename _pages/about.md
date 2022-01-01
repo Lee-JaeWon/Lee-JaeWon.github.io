@@ -41,5 +41,5 @@ toc: true
 
 - Department of Robotics, Kwangwoon University. (2020.3~)
 - Undergraduate student at [RAIL](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~)
-- Contact me. [Jaewon Lee's e-mail](ashcircle@kw.ac.kr)
+- Contact me. [Jaewon Lee's e-mail](email)
 
