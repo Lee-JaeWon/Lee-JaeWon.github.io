@@ -124,7 +124,7 @@ author:
       url: "https://github.com/Lee-JaeWon/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/ash__circle_/"
 
 # Site Footer
 footer:
@@ -146,7 +146,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://www.instagram.com/ash__circle_/"
 
 
 # Reading Files
