@@ -71,6 +71,9 @@
                     {% if category[0] == "Ubuntu" %}
                         <li><a href="/categories/Ubuntu" class="">Ubuntu ({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "ROS" %}
+                        <li><a href="/categories/ROS" class="">ROS ({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
 
