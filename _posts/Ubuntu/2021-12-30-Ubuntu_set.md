@@ -80,7 +80,8 @@ $ sudo dkms install -m rtl88x2bu -v ${VER}
 
 $ sudo modprobe 88x2bu
 ```
-and reboot<br><br><br>
+and `$ reboot`<br><br><br>
+
 📣<br>
 본 포스팅의 언어 및 개발 환경 : `C++`, `Ubuntu 18.04.6 LTS`, `Ubuntu 20.04.3 LTS`  
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
