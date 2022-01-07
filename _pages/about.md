@@ -40,6 +40,7 @@ toc: true
 <h3 align="left">👉About Me </h3>
 
 - Department of Robotics, Kwangwoon University. (2020.3~)
+- Club : BARAM (Robotics Academic Group). (2020.3~), [Club Vice President (2022.3~)]
 - Undergraduate student at [RAIL](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~)
 - Contact me. [Jaewon Lee's e-mail](email)
 
