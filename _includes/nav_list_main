@@ -56,11 +56,14 @@
             </ul>
 
         <!--SLAM 관련 카테고리 입니다.-->
-        <span class="nav__sub-title">SLAM</span>
+        <span class="nav__sub-title">SLAM & Computer Vision</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Ceres_Solver" %}
                         <li><a href="/categories/ceres_solver" class="">Ceres_Solver ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "SLAM" %}
+                        <li><a href="/categories/slam" class="">SLAM ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
