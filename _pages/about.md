@@ -27,12 +27,12 @@ toc: true
 <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/>
 <img src="https://img.shields.io/badge/Anaconda-44A833?style=flat-square&logo=Anaconda&logoColor=white"/>
 <img src="https://img.shields.io/badge/VSCode-007ACC?style=flat-square&logo=Visual Studio Code&logoColor=white"/>
-<img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=Ubuntu&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=Ubuntu&logoColor=white"/>
 <br>
 <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=PyTorch&logoColor=white"/>
 <img src="https://img.shields.io/badge/Unity-000000?style=flat-square&logo=Unity&logoColor=white"/>
 <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=OpenCV&logoColor=white"/>
-<img src="https://img.shields.io/badge/ROS1-22314E?style=flat-square&logo=ROS&logoColor=white"/></a>
+<img src="https://img.shields.io/badge/ROS1-22314E?style=flat-square&logo=ROS&logoColor=white"/>
 <br>
 <img src="https://img.shields.io/badge/Inventor-FF8800?style=flat-square&logo=Autodesk&logoColor=white"/>
 <img src="https://img.shields.io/badge/STM32F401RE-03234B?style=flat-square&logo=STMicroelectronics&logoColor=white"/>
