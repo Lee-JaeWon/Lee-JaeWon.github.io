@@ -49,16 +49,16 @@
             </ul>
 
         <span class="nav__sub-title">Ubuntu</span>
-        <ul>
-            {% for category in site.categories %}
-                {% if category[0] == "Ubuntu" %}
-                    <li><a href="/categories/Ubuntu" class="">Ubuntu ({{category[1].size}})</a></li>
-                {% endif %}
-                {% if category[0] == "ROS" %}
-                    <li><a href="/categories/ROS" class="">ROS ({{category[1].size}})</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Ubuntu" %}
+                        <li><a href="/categories/Ubuntu" class="">Ubuntu ({{category[1].size}})</a></li>
+                    {% endif %}
+                    {% if category[0] == "ROS" %}
+                        <li><a href="/categories/ROS" class="">ROS ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         <!--Algorithm 관련 카테고리 입니다.-->
         <span class="nav__sub-title">Algorithm</span>
@@ -66,6 +66,16 @@
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithm_Problem" %}
                         <li><a href="/categories/Algorithm_Problem" class="">Algorithm PS ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        <!--MCU 관련 카테고리 입니다.-->
+        <span class="nav__sub-title">Firmware</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "ATmega128" %}
+                        <li><a href="/categories/ATmega128" class="">ATmega128 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
