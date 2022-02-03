@@ -11,10 +11,10 @@ toc: true
 **I am studying at the Department of Robotics of Kwangwoon University.**
 
 ### I'm Interest in   
+🔎 **SLAM, Robot Navigation**<br>
 🔎 **Artificial Intelligence**<br>
-🔎 **Autonomous Driving**<br>
+🔎 **Multi Robot Control**<br>
 🔎 **Cooperative Autonomous Driving - Smart Road Technology**<br>
-🔎 **Robot Navigation**<br>
 
 ------------------------------------
 ### Tech Stack & Frame Work that I Know and Study 
