@@ -126,7 +126,7 @@ ATmega128의 8bit 타이머/카운터에는 타이머/카운터0과 타이머/�
 **동작모드와 분주비를 결정한다.**<br><br>
 <p align="center"><img src="/MyPDF/tccr0.png" width = "800" ></p>
 
-- Bit 6, 3 : WGM00 & WGM01
+* Bit 6, 3 : WGM00 & WGM01
 **Waveform Generation Mode**
 
 <p align="center"><img src="/MyPDF/wgm.png" width = "600" ></p>
@@ -150,3 +150,94 @@ COM레지스터 설정은 non-PWM, Fast PWM, phase Correct PWM Mode에 따라 �
     위의 Fast-PWM에서 설명한 것처럼 Compare Match시 Low, overflow interrupt 후 Bottom 복귀 시 High라고 설명했었다.<br>
     그러면 이에 맞는 것은 `COM01, COM00 : 1, 0`이 될 것이다.(해당하는 Description을 읽어보자 별로 길지도 않다.)<br><br>
     혹여라도 이의 반대 방향의 파형을 원한다면 어떻게 설정해야할까?(문제로 남겨놓겠음. Description을 읽으면 바로 알 수 있을 것이다.)
+
+    * COM, Phase Correct PWM Mode
+    <p align="center"><img src="/MyPDF/phasepwm.png" width = "600" ></p>
+<br><br>
+* Bit 2, 1, 0 : CS02 & CS01 & CS00
+<p align="center"><img src="/MyPDF/cs210.png" width = "600" ></p>
+Prescaler의 분주비를 설정해준다.<br>
+10bit prescaler답게 1024까지 분주가 가능하다.<br>
+<p align="center"><img src="/MyPDF/timer0prescaler.png" width = "600" ></p>
+$clk_{T0S}$는 위의 다이어그램에서 확인할 수 있으며, 내부 혹은 외부 클럭 소스가 선택된 후 나온 클럭이다.<br>
+이 클럭이 Prescaler를 통과하여 원하는 클럭이 출력된다.
+
+### TCNT0
+<p align="center"><img src="/MyPDF/tcnt0.png" width = "600" ></p>
+위에서 말한 Timer/Counter 8bit 값을 저장하고 있는 TCNT 레지스터이다.<br>
+
+### TIMSK
+<p align="center"><img src="/MyPDF/timsk0.png" width = "600" ></p>
+
+* Bit 1 : OCIE0
+OCIE0가 1로 set되면 Output Compare Match Interrupt Enable로 설정된다.<br>
+
+* Bit 0 : TOIE0
+0번 비트가 1로 set되면 Overflow Interrupt Enable.<br>
+(여기까지 다 읽고 왔고, 데이터시트도 한 번쯤 봤다면 지금 이게 무슨 소리지? 라고 하면 안된다.)
+
+## 전역 인터럽트 활성화
+지금까지 레지스터를 설정한 것들은 실제로는 Initialization과정이다.<br><br>
+실제로 어떠한 코드가 작동하기 전에 전역적으로 인터럽트를 활성화 해줘야한다.<br><br>
+원래는 SREG 레지스터를 설정해줬었는데, AVR 버전이 높아지며 `sei();`만으로도 전역 인터럽트 활성화를 시켜줘야한다.<br>
+(이유를 물어본다면 본인은 코드 시작전에 내가 인터럽트를 사용할 것이니 전체적으로 인터럽트를 사용하겠다 라고 sei를 통해 알려준다고 받아들였다.)
+
+## 전역 인터럽트 비활성화
+는 `cli();`를 통해 비활성화해준다.<br>
+예제에서는 많이 안쓰였지만, 실제로 자신이 무엇을 만들다보면 전역적으로 인터럽트를 비활성화 시켜버려야할 순간도 올 수 있다.<br><br>
+본인은 SCARA를 제작할 때, 어떤 스위치가 눌리면 전역적으로 모두 인터럽트를 해제하고 다른 작업을 해야할 때 사용했다.<br>
+
+## 8bit 예제 : 원하는 주기마다 LED켜기
+### 원하는 주기 만들기
+먼저 OCR은 이용하지 않고, Overflow Interrupt와 TCNT의 초기값 설정만으로 주기를 만들어보자.<br><br>
+$$ \frac{1}{T_{desired}}=f_{desired}=\frac{f_{osc}/psc}{(TOP+1)-TCNT_{init}} $$<br><br>
+여기서 $f_{osc}$는 16MHz이고, $psc$는 prescaler이다.<br>
+우리는 이 식을 통해 원하는 주기에 맞는 초기 TCNT값을 찾을 것이다.<br>
+(Overflow Interrupt를 사용할 것이므로 TCNT의 시작값을 높여서 주기를 맞추겠다는 의미이다.)<br>
+<p align="center"><img src="/MyPDF/tcnt_ex.png" width = "400" ></p>
+<br><br>
+예시 : 나는 2ms를 만들어내고 싶다. 그럼 일단 분주비는 몇으로 해야하지?<br>
+일단 분주비 8로 한 번 해보자.<br><br>
+$$ \frac{1}{0.002}=500=\frac{16000000/8}{(255+1)-TCNT_{init}} $$<br>
+로 계산했더니, TCNT = -3744가 나와버렸고 이는 우리가 아는 TCNT 0~255의 범위에 맞지 않는다.<br><br>
+256으로 해보자.<br><br>
+$$ \frac{1}{0.002}=500=\frac{16000000/256}{(255+1)-TCNT_{init}} $$<br>
+이면, TCNT = 131이 나오게 된다.<br><br>
+즉, TCNT0가 0이 아닌 131부터 시작한다면, 2ms 마다 Overflow Interrupt가 발생한다는 뜻이 된다.<br><br>
+이제 내가 1초를 원한다면, 2ms를 500번 반복하면 된다.<br>
+
+### 실제 코드 (8bit Timer/Counter0)
+2ms주기를 만든 후, cnt == 500일 때마다 (1초) LED 점멸을 뒤집는다.<br>
+```c
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+int cnt;
+
+ISR(TIMER0_OVF_vect){
+	cnt++;
+	TCNT0 = 131;
+	
+	if(cnt == 500){
+		PORTA = ~PORTA;
+		cnt = 0;
+	}
+}
+
+int main(void)
+{
+	
+	DDRA = 0xff;
+	PORTA = 0xaa;
+	
+	TCCR0 = (0<<WGM01)|(0<<WGM00)|(0<<COM01)|(0<<COM00)|(1<<CS02)|(1<<CS01)|(0<<CS00);
+	TIMSK = (1<<TOIE0);
+	TCNT0 = 131;
+	
+	sei();
+	/* Replace with your application code */
+	while (1)
+	{
+	}
+}
+```
