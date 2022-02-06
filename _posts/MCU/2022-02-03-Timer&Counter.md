@@ -1,5 +1,5 @@
 ---
-title : "Timer&Counter"
+title : "ATmega128 Timer&Counter"
 category :
     - ATmega128
 tag :
@@ -239,5 +239,112 @@ int main(void)
 	while (1)
 	{
 	}
+}
+```
+
+# 16비트 '타이머/카운터' 의 동작
+## 개요
+16비트 타이머/카운터도 8bit와 큰 차이가 나는 것은 아니다.<br><br>
+기능의 차이와 더 많은 비트를 한 번에 Bus에 보낼 수 있거나,<br>
+앞 서 언급한 것처럼 counting할 수 있는 범위가 더 많아진다.<br>
+(Most register and bit references in this section are written in general form)
+
+## 특징
+- 0~65535까지 counting가능
+- 10bit prescaler
+- 3개의 PWM출력 가능
+- Input Caputure 기능
+- 10개의 Independent Interrupt Sources
+
+## Registor Control (Timer/Counter1 기준)
+### TCCR1A & TCCR1B
+**TCCR은 동작모드와 분주비를 결정한다.**
+MCU자체는 8bit짜리 MCU이기 때문에 위 8bit예제에서 본 것처럼 TCCR을 설정하지만 더 많은 bit를 다루어야하기 때문에, A, B, C로 나뉜다.<br>
+<p align="center"><img src="/MyPDF/tccr1a.png" width = "600" ></p>
+
+- Bit 7:6 – COMnA1:0: Compare Output Mode for Channel A
+- Bit 5:4 – COMnB1:0: Compare Output Mode for Channel B
+- Bit 3:2 – COMnC1:0: Compare Output Mode for Channel C
+
+원하는 출력 포트(OCn)에 따라 Bit를 설정해주면 된다.<br><br>
+COM 레지스터는 위에서 설명했지만, Compare Match가 일어났을때(OCR이든 TOP이든), 수행할 동작을 결정한다.<br>
+COM레지스터 설정은 non-PWM, Fast PWM, phase Correct PWM Mode에 따라 설정 양식이 다르다.
+<p align="center"><img src="/MyPDF/tccrn_nonpwm.png" width = "600" ></p>
+<p align="center"><img src="/MyPDF/tccrn_fastpwm.png" width = "600" ></p>
+
+그리고 WGM과 분주비(cs레지스터)는 TCCR1A와 TCCR1B로 나눠져있다.<br>
+어떻게 설정해줘야할지 보자.<br>
+<p align="center"><img src="/MyPDF/tccr1a.png" width = "600" ></p>
+- Bit 1:0 – WGMn1:0: Waveform Generation Mode
+<p align="center"><img src="/MyPDF/tccr1b.png" width = "600" ></p>
+- Bit 4:3 – WGMn3:2: Waveform Generation Mode
+WGM을 설정해주고 싶은데 타이머/카운터1 에서 위와 같이 WGM이 2개씩 나눠져 있다.<br>
+<p align="center"><img src="/MyPDF/16bitwgm.png" width = "600" ></p>
+하지만 어렵지 않다, 원하는 모드를 찾아서 그저 Table을 보고 설정해주면 된다.<br>
+(지금까지 계속해왔던 과정)<br><br>
+TCCR1B를 보니 CS도 보인다. 분주비 설정도 해줄 수 있다.<br>
+- Bit 2:0 – CSn2:0: Clock Select
+<p align="center"><img src="/MyPDF/16bitcs.png" width = "600" ></p>
+
+### TCNT1
+<p align="center"><img src="/MyPDF/tcnt1.png" width = "600" ></p>
+16bit 범위로 값을 증가하거나 감소시키기에 다음과 같이 H/L로 구성되어있다.<br>
+
+### OCR1
+OCR1에는 A,B,C로 나눠져있는데 이는 원하는 OCn에 따라 설정해주면 된다.<br>
+(16bit에서 OC핀을 통해 3개의 파형을 출력할 수 있다고 위에서 설명했다.)<br><br>
+만약, OC1A에서 출력하고 싶다면 OCR1A를 설정해주면 된다.<br>
+<p align="center"><img src="/MyPDF/ocr1a.png" width = "600" ></p>
+Compare Match Interrupt를 위해 사용된다.
+
+### ICR1
+<p align="center"><img src="/MyPDF/icr1.png" width = "600" ></p>
+**Input Capture Register**이다.<br><br>
+Input Capture는 ICPn핀에 event가 발생하면, ICR레지스터 값을 TCNT값으로 갱신한다.<br><br>
+또한, Input Capture는 **counter의 TOP value를 지정**하는데도 사용할 수 있다.<br>
+(실질적으로 TOP값 지정하는데 이 기능을 사용할 것이다.)<br>
+
+### TIMSK
+**Timer/Counter Interrupt Mask Register**<br>
+**Timer/Counter1 의 Interrupt를 Enable하는 Register**
+<p align="center"><img src="/MyPDF/timsk.png" width = "600" ></p>
+- Bit 4 – OCIE1A: Timer/Counter1, Output Compare A Match Interrupt Enable
+- Bit 3 – OCIE1B: Timer/Counter1, Output Compare B Match Interrupt Enable
+- Bit 2 – TOIE1: Timer/Counter1, Overflow Interrupt Enable
+
+### ETIMSK
+ETIMSK는 TIMSK의 Extended 레지스터이다.
+OCIE1C와 Timer/Counter3 Interrupt Enable에 관한 설정을 하게 된다.
+
+## 16bit 예제 : Duty Ratio 80%인 PWM만들기
+$$ \frac{1}{T_{desired}}=f_{desired}=\frac{f_{osc}/psc}{(TOP+1)-TCNT_{init}} $$<br><br>
+이 식에서 $TCNT_{init}$는 0이고 $TOP$는 $ICR$로 설정하고 분주는 1로 할 것이다.<br><br>
+Mode는 Fast-PWM을 할 것이니까, OCR에서 Compare Match Interrupt, TOP(ICR)에서 Overflow Interrupt가 발생한다.<br><br>
+모터 출력을 할 것인데, Motor 주파수는 20KHz로 설정할 것이다.<br><br>
+$$ 20000=\frac{16000000/1}{(ICR + 1)-0} $$<br><br>
+$ICR = 799$가 나옴을 확인하였고, Duty Ratio 80%가 되려면 OCR이 ICR의 80%가 되야한다.<br> 
+이제 실제 코드를 살펴보자.<br>
+```c
+#include <avr/io.h>
+
+int main(void)
+{
+	DDRB = 0xFF;
+	DDRE = 0x0F;
+	
+	PORTE = 0b00001010;
+	
+	TCCR1A = (1<<COM1A1)|(0<<COM1A0)|(1<<COM1B1)|(0<<COM1B0)|(1<<WGM11)|(0<<WGM10);
+
+	TCCR1B = (1<<WGM13)|(1<<WGM12)|(0<<CS02)|(0<<CS01)|(1<<CS00);
+	
+	ICR1 = 799;
+	OCR1A = 639;
+	OCR1B = 639;
+	
+    /* Replace with your application code */
+    while (1) 
+    {
+    }
 }
 ```
