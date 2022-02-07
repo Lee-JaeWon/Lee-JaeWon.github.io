@@ -348,3 +348,9 @@ int main(void)
     }
 }
 ```
+<br><br>
+
+📣<br>
+본 포스팅의 언어 및 개발 환경 : `Windows`, `C`. `MicroChip Studio(AVR7)`<br>
+포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
+{: .notice--info}
