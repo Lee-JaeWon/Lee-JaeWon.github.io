@@ -6,14 +6,16 @@ toc: true
 
 ---
 
+![header](https://capsule-render.vercel.app/api?type=waving&color=black&height=250&section=header&text=LeeJaeWon&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Robotics&descAlignY=55&descAlign=72.8)
+
 ## Hi there, I'm Lee Jae Won 👋  
 
 **I am studying at the Department of Robotics of Kwangwoon University.**
 
 ### I'm Interest in   
 🔎 **SLAM, Robot Navigation**<br>
+🔎 **Multi Robot System**<br>
 🔎 **Artificial Intelligence**<br>
-🔎 **Multi Robot Control**<br>
 🔎 **Cooperative Autonomous Driving - Smart Road Technology**<br>
 
 ------------------------------------
@@ -49,4 +51,4 @@ toc: true
 
 * Undergraduate student at [RAIL](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~)
 
-* Contact me. [Jaewon Lee's e-mail](email)
+* Contact me. [Jaewon Lee's e-mail](email)j
