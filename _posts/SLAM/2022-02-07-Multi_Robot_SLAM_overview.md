@@ -11,7 +11,9 @@ sidebar_main: true
 ---
 
 Multi-Robot SLAM system의 대략적인 이해를 위한 논문 리뷰 포스팅입니다.<br><br>
-기본적으로 SLAM에 대한 이해가 필요합니다.
+기본적으로 SLAM에 대한 이해가 필요합니다.<br><br>
+
+**Reference** : Mahmoud A. Abdulgalil, (2018), Multi-robot SLAM: An Overview and Quantitative Evaluation of MRGS ROS Framework for MR-SLAM, RiTA 2017: Robot Intelligence Technology and Applications 5 pp 165-183
 
 ## 1. Introduction
 ### Autonmous Vehicle 개요
