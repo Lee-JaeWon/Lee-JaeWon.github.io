@@ -44,11 +44,12 @@ toc: true
 --------------------------------------  
 <h3 align="left">👉About Me </h3>
 
-* Department of Robotics, Kwangwoon University. (2020.3~)
+* [Department of Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~)
+    * Major in Intelligent System
 
-* Club : BARAM (Robotics Academic Group). (2020.3~)
+* Club : [BARAM](https://cafe.naver.com/roboticsbaram) (Robotics Academic Group). (2020.3~)
     * Club Vice President (2022.3~)
 
 * Undergraduate student at [RAIL](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~)
 
-* Contact me. [Jaewon Lee's e-mail](email)j
+* Contact me. [Jaewon Lee's e-mail](email)
