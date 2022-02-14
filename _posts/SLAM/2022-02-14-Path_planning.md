@@ -1,5 +1,5 @@
 ---
-title : "Path Planning"
+title : "Path Planning Algorithms"
 category :
     - SLAM
 tag :
