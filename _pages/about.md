@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About Me & CV"
 permalink: /Aboutme/
 layout: single
 toc: true
@@ -53,3 +53,8 @@ toc: true
 * Undergraduate student at [RAIL](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~)
 
 * Contact me. [Jaewon Lee's e-mail](email)
+
+
+## CV
+[Lee-JaeWon's CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV)
+<p align="center"><img src="/MyPDF/Lee-JaeWon_CV.png" width = "800" ></p>
