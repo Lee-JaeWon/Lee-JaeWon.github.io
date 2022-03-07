@@ -1,5 +1,5 @@
 ---
-title : "Exploration Algorithms"
+title : "Path Planning Algorithms"
 category :
     - SLAM
 tag :
@@ -10,8 +10,8 @@ comments: true
 sidebar_main: true
 ---
 
-Multi-Robot SLAM Project를 위한 Exploration 기법들에 관한 포스팅입니다.<br>
-앞으로 알아가게 될 Exploration 기법들을 계속해서 추가해 나갈 예정입니다.
+Mobile-Robot SLAM에서의 Path Planning 기법들에 관한 포스팅입니다.<br>
+앞으로 알아가게 될 기법들을 계속해서 추가해 나갈 예정입니다.
 
 ## Rapidly exploring Random Tree (RRT)
 ### 개요
