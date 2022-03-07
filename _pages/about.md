@@ -57,4 +57,5 @@ toc: true
 
 ## CV
 [Lee-JaeWon's CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV)
-<p align="center"><img src="/MyPDF/Lee-JaeWon_CV.png" width = "800" ></p>
+<p align="center"><img src="/MyPDF/Lee-JaeWon_CV-1.png" width = "800" ></p>
+<p align="center"><img src="/MyPDF/Lee-JaeWon_CV-2.png" width = "800" ></p>
