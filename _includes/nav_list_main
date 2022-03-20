@@ -67,6 +67,9 @@
                     {% if category[0] == "Algorithm_Problem" %}
                         <li><a href="/categories/Algorithm_Problem" class="">Algorithm PS ({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "Filter" %}
+                        <li><a href="/categories/Filter" class="">Filter ({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
 
