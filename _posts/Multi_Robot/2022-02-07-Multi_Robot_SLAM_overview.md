@@ -1,9 +1,9 @@
 ---
 title : "'Multi-Robot SLAM: An Overview' Paper Review"
 category :
-    - SLAM
+    - Multi_Robot
 tag :
-    - SLAM
+    - Multi_Robot
 toc : true
 toc_sticky: true
 comments: true
