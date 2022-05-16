@@ -15,9 +15,13 @@ sidebar_main: true
 공부하며 정리하는 포스팅이기 때문에 다소 직역과 번역에 가까워 질 수 있습니다.
 
 ()에 담는 내용은 본인의 부연 설명입니다.
+
+## 0. Reference
+W. Burgard, M. Moors, C. Stachniss and F. E. Schneider, "Coordinated multi-robot exploration," in IEEE Transactions on Robotics, vol. 21, no. 3, pp. 376-386, June 2005, doi: 10.1109/TRO.2004.839232.
+
 ## 1. Introduction
 
-## 2. Coordinating a Team Of Robots During Exploration
+## 2. Coordinating a Team of Robots During Exploration
 ### A. Costs
 ### B. Computing Utilities of Frontier Cells
 <br>**Frontier cell들의 효용성(Utility)을 추정하는 것은 굉장히 어렵다.**<br>
@@ -27,15 +31,71 @@ sidebar_main: true
 (이미 로봇이 간 cell로 갈 이유가 없기에 다른 로봇한테는 효용성이 떨어진다.)<br><br>
 그러나 지정된 목표 위치로만 효용성이 줄어드는 것은 아니다.<br><br>
 로봇의 센서는 일반적으로 로봇이 도착하자마자 특정 영역을 커버하기 때문에 로봇의 목표 지점 근처에 있는 Frontier cell의 기대 효용성(Expected Utility)또한 줄어든다.<br>
-(로봇의 센서가 목표 지점만 비추는 것이 아니라 그 영역 부근 전체를 인식하기에 목표 지점 근처 cell들의 활용도가 떨어짐. 목표 지점이 있는데 다른 지점으로 갈 이유가 없기 때문에.)<br><br>
-2-B. 에서는 다른 로봇에 할당된 cell들의 거리(distance)와 가시성(visibility)을 기반으로 frontier cell의 Expected Utility를 추정하는 기술을 제시한다.<br><br>
+(로봇의 센서가 목표 지점만 비추는 것이 아니라 그 영역 부근 전체를 인식하기에 목표 지점 근처 cell들의 활용도가 떨어짐. 목표 지점이 있는데 다른 지점으로 갈 이유가 없기 때문에.)<br>
+
+**2-B.** 에서는 다른 로봇에 할당된 cell들의 거리(distance)와 가시성(visibility)을 기반으로 frontier cell의 Expected Utility를 추정하는 기술을 제시한다.<br><br>
 처음에 각 frontier cell $t$가 환경에서 특정 위치의 유용성에 대한 추가 정보가 없을 때, 모든 frontier cell에 대해 동일한 Utility $U_t$를 가진다고 가정하자.<br><br>
 어떤 로봇의 target point $t'$이 설정되었을 때, 우리는 $t'$주위의 거리 $d$만큼 인접한 frontier cell들의 utility를 감소시킬 수 있다.<br>이는 로봇의 센서가 거리 $d$이내의 cell들을 덮을 확률 $P(d)$ 에 따라 결정된다.<br><br>
-또한, 지정된 $t'$부터 거리 $d$에 있는 어떤 cell $t$은 로봇이 $t'$ 도착했을 때, 확률 $P(d)$와 함께 덮일 것이다.<br><br>
+또한, 지정된 $t'$부터 거리 $d$에 있는 어떤 cell $t$은 로봇이 $t'$ 도착했을 때, 확률 $P(d)$와 함께 센서에 의해 덮일 것이다.<br><br>
 따라서, 우리는 frontier cell $t_n$의 utility $U(t_{n}|t_{1},...,t_{n-1})$를 계산할 수 있다.<br>
 이 $t_{1},...,t_{n-1}$은 이미 robot $1,...,n-1$에 할당되어 있다.<br><br>
-식은 다음과 같다.<br>
-$ U(t_{n}|t_{1},...,t_{n-1} = U_{t_{n}}) - \sum_{i=1}^{n-1} P(\Vert{t_{n}-t_{i}\Vert}) $
+Utility에 대한 식은 다음과 같다.<br>
+$ U(t_{n}|t_{1},...,t_{n-1}) = U_{t_{n}} - \sum_{i=1}^{n-1} P(\Vert{t_{n}-t_{i}\Vert}) $     ...   (1)
+<br><br>
+$t_n$의 Utility는 나머지 Frontier Cell들의 영향을 받아 결정된다.<br>
+
+**식 (1)**에 따르면, 다른 로봇들이 $t_n$이 보일 수 있는 위치로 이동하는 횟수가 많을수록 $P(d)$가 점점 커지므로, $U(t_n)$ 즉, $t_n$의 Utility는 감소한다.
+<br>
+
+만약 $t$와 $t'$사이에 장애물이 있다면, $P(\Vert{t-t'\Vert})$ 는 줄어들거나 0으로 설정할 수 있다.<br>
+
+광범위한 실험에서는 $P(d)$가 어떤 환경에서 학습되었는지가 유의미한 차이를 보이지 않으므로, $P(d)$는 다음과 같이 근사할 수 있다.<br>
+
+$$ P(d) = \begin{cases}
+1.0- \frac{d}{max\underline{}range}, & \mbox{if }d\mbox{ < $max\underline{}range$} \\
+0, & \mbox{ }\mbox{otherwise} 
+\end{cases} $$
+
+### C. Target Point Selection
+각각의 로봇에 적절한 목표 지점(Target Points)을 계산하기 위해서는 각각의 로봇의 **위치로 이동할 때의 Cost**와 **그 위치의 Utility**를 고려해야 한다.
+<br><br>
+특히, 각각의 로봇 $i$는 location $t$로의 cost ${V_{t}}^i$와 $t$의 Utility $U_t$의 균형을 맞춰야 한다.
+<br><br>
+반복적인 계산을 통해 모든 로봇의 target point를 추정한다.<br>
+tuple $(i,t)$를 계산해야 하며, $i$는 로봇의 인덱스, $t$는 frontier cell이다.<br><br>
+Coordinated Multi-Robot Exploration의 Goal 지정 Algorithm 1.은 다음과 같다.<br>
+
+1. Determine the set of froniter cells.<br>
+    --> frontier cell들의 집합을 결정.
+2. Compute for each robot $i$ the cost ${V_{t}}^i$ for reaching each frontier cell $t$.<br>
+    --> 각각의 로봇의 $t$로 도달하기 위한 Cost 계산
+3. Set the utility $U_t$ of all frontier cells to 1.<br>
+    --> 모든 froniter cell들의 utility를 1로 설정
+4. **while** there is one robot left without a target point **do**
+    --> 
+5. Determine a robot $i$ and a frontier cell $t$ which satisfy:<br>
+    $(i,t)$ = ${argmax_{i',t'}}(U_{t'}-{\beta} * {V_{t'}}^{i'})$<br>
+    --> $(U_{t'}-{\beta} * {V_{t'}}^{i'})$가 최대인 $(i',t')$ <br> **즉**, Utility는 크면서 Cost는 작은 $(i',t')$를 찾아야 함.
+6. Reduce the utility of each target point $t'$ in the visibility<br>
+    area according to $U_{t'}\leftarrow U_{t'}-P(\Vert{t-t'\Vert})$<br>
+    --> 보이는 목표 지점 $t'$의 Utility 줄이기 (P가 증가하기 때문에)
+7. **end** **while**
+
+<br><br>
+**Algorithm** **1.**의 시간 복잡도는 $O(n^2T)$이며, n은 로봇의 개수, T는 frontier cell들의 개수이다.<br><br>
+$\beta$는 cost에 대한 Utility의 중요도이다.<br>
+$\beta$가 너무 크거나 너무 작으면, 적절한 $(i,t)$를 찾는데 시간이 오래걸려 전체적으로 탐사 시간이 증가한다.<br><br>
+그래서 본 논문에서는 $\beta$를 **1**로 지정한다.<br>
+<br>
+지금까지의 coordination technique을 적용한 모습은 다음과 같으며,
+<p align="center"><img src="/MyPDF/CMR1.png" width = "400" ></p><br>
+uncoordinated robot에 대한 모습은 다음과 같다.
+<p align="center"><img src="/MyPDF/CMR2.png" width = "400" ></p><br>
+coordinated robot은 각기 다른 next explortion target을 지정한다.<br><br>
+탐사 중에 coordinating team of robots에서의 한 가지 질문점은 언제 target location을 재계산 할 것이냐에 관한 것이다.<br>
+**제한(Unlimited)이 없는 통신 상황**에서는 로봇이 지정된 target location에 도달했을 때 혹은 계산 후 경과한 시간이 임계치를 초과할 때 새로운 목표 지점을 계산하는 것이다.<br><br>
+
+
 
 📣<br>
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
