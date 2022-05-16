@@ -23,6 +23,33 @@ W. Burgard, M. Moors, C. Stachniss and F. E. Schneider, "Coordinated multi-robot
 
 ## 2. Coordinating a Team of Robots During Exploration
 ### A. Costs
+현재 frontier cell들에 이르기 위한 cost를 결정하기 위해서는<br>
+동적 프로그래밍 중 하나인 $value$ $interation$을 통해 현재 position에서 모든 frontier cell들까지의 최적 경로를 계산해야 한다.<br><br>
+tuple $(x,y)$는 2차원 occupancy grid map에서 x축의 $x$번째, y축의 $y$번째 cell을 뜻한다.<br><br>
+grid cell $(x,y)$로 가는 비용은 Occupancy value $P(occ_{xy})$에 비례한다.<br><br>
+minimum-cost path는 아래 두 단계를 통해 계산된다.<br>
+1. **Initialization.** The grid cell that contains the robot location is initialized with 0, all others with $\infty$ <br><br>
+$$ V_{x,y} \leftarrow \begin{cases}
+0, & \mbox{if }\mbox{$(x,y)\; is\; the\; robot\; position$} \\
+\infty, & \mbox{}\mbox{otherwise} 
+\end{cases} $$
+<br>
+
+2. **Update loop.** For all grid cells $(x,y)$ do: <br><br>
+$ V_{x,y} \leftarrow min(V_{x+\Delta x,\; y+\Delta y} + \sqrt{\Delta x^2 + \Delta y^2}*P(occ_{x+\Delta x,\; y+\Delta y}) $<br>
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; | \Delta x,\;\Delta y \in (-1,0,1) \wedge P(occ_{x+\Delta x,\; y+\Delta y}) \in [0, occ_{max}])$
+
+$occ_{max}$는 로봇이 갈 수 있는 grid cell의 최대 점유 확률이다.<br><br>
+이 방법은 모든 grid cell의 값을 최적의 이웃의 값과 이 이웃으로 이동하는 비용에 따라 업데이트 한다.<br><br>
+여기서 Cost는 grid cell $(x,y)$가 다른 cell까지의 거리에 대해 점유되는 확률 $P(occ_{x,y})$와 같다.<br><br>
+(위 식을 간단히 해석해보면 현재 위치 $(x,y)$ 주변에서 가장 가까운 거리내에 점유되지 않은 곳을 선정하는 것이라 볼 수 있다.<br>
+점유되지 않을수록 P값이 작기 때문에 P값이 작으면서도 거리도 가까운 지점을 선정하기 위한 식이라 볼 수 있다.)<br><br>
+-1은 unknown space, 0은 free space, $occ_{max}$에 가까울 수록 Occupied로 본다.<br><br>
+즉 unknown space일 때는 누적되는 $V_{x,y}$의 값이 감소되며, occupied에서는 값이 커지기에 cost가 증가한다.<br><br>
+알고리즘의 수렴은 cell이 음수가 아니거나 환경이 bounded되면 보장된다.<br><br>
+<p align="center"><img src="/MyPDF/CMR2.png" width = "400" ></p><br>
+위 사진은 cost를 통해 target point를 지정한 모습이다.
+
 ### B. Computing Utilities of Frontier Cells
 <br>**Frontier cell들의 효용성(Utility)을 추정하는 것은 굉장히 어렵다.**<br>
 (Utility? -> 쓸모있는 것, 효용성, 로봇이 쓰기 좋은 정보?)<br><br>
@@ -53,7 +80,7 @@ $t_n$의 Utility는 나머지 Frontier Cell들의 영향을 받아 결정된다.
 
 $$ P(d) = \begin{cases}
 1.0- \frac{d}{max\underline{}range}, & \mbox{if }d\mbox{ < $max\underline{}range$} \\
-0, & \mbox{ }\mbox{otherwise} 
+0, & \mbox{}\mbox{otherwise} 
 \end{cases} $$
 
 ### C. Target Point Selection
@@ -92,10 +119,18 @@ $\beta$가 너무 크거나 너무 작으면, 적절한 $(i,t)$를 찾는데 시
 uncoordinated robot에 대한 모습은 다음과 같다.
 <p align="center"><img src="/MyPDF/CMR2.png" width = "400" ></p><br>
 coordinated robot은 각기 다른 next explortion target을 지정한다.<br><br>
-탐사 중에 coordinating team of robots에서의 한 가지 질문점은 언제 target location을 재계산 할 것이냐에 관한 것이다.<br>
+탐사 중에 coordinating team of robots에서의 한 가지 질문점은 언제 target location을 재계산할 것이냐에 관한 것이다.<br>
 **제한(Unlimited)이 없는 통신 상황**에서는 로봇이 지정된 target location에 도달했을 때 혹은 계산 후 경과한 시간이 임계치를 초과할 때 새로운 목표 지점을 계산하는 것이다.<br><br>
 
-
+### D. Coordination With Limited Communication Range
+실질적으로, 로봇들이 어느 시점에서나 정보를 교환할 수 있다고 가정할 수 없다.<br><br>
+무선 통신과 같이 제한된 통신 범위에서는 로봇이 특정 시점에 다른 로봇과 통신을 못할 수도 있다.<br><br>
+로봇간의 거리가 너무 커져 모든 로봇이 통신할 수 없는 경우에는 [Centralized Approach](https://lee-jaewon.github.io/multi_robot/Multi_Robot_SLAM_overview/#a-centralized-vs-decentralized)를 적용할 수 없다.<br><br>
+이 논문에서는 제한된 통신 범위에 대해서 그들끼리 통신 가능한 sub-team을 적용하여 접근한다.<br><br>
+이 때, 최악의 경우에도 로봇은 각각의 Exploration을 진행하는 상황으로 이어진다.<br><br>
+제한된 통신의 경우, 통신이 끊기면 다른 로봇의 목표를 알 수 없기 때문에 중복된 작업을 초래할 수 있다.<br>
+이 논문의 전략은 **각 로봇이 다른 로봇에 할당된 최신 목표 위치를 저장하면** 통신 범위가 초과되어도 로봇이 이미 탐색한 장소로 이동하는 것을 피하기 때문에 전반적인 성능이 향상된다.<br><br>
+이 전략은 소규모 로봇 팀의 맥락에서 유용하다는 것이 밝혀졌다.<br><br>
 
 📣<br>
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
