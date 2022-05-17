@@ -10,7 +10,7 @@ comments: true
 sidebar_main: true
 ---
 
-'Coordinated Multi-Robot Exploration' 논문 리뷰 포스팅입니다.(작업 중)
+'Coordinated Multi-Robot Exploration' 논문 리뷰 포스팅입니다.
 
 공부하며 정리하는 포스팅이기 때문에 다소 직역과 번역에 가까워 질 수 있습니다.
 
@@ -164,6 +164,29 @@ mobile robot mapping problem은 CML(Concurrent mapping and localization problem)
 이 접근 방식에서 각 로봇은 로봇에 의해 인식된 센서 측정의 로그를 서로에 대해 저장한다.<br><br>
 또한, 로봇은 다른 모든 로봇에 전송된 최신 측정 타임스탬프를 포함하는 작은 데이터 구조를 유지한다.<br>
 이것은 다른 모든 로봇에 의해 수신된 측정값을 폐기할 수 있다.<br><br>
+
+## 4. Experiment Result
+### Test
+- Without Coordination
+
+<p align="center"><img src="/MyPDF/CMR3.png" width = "600" ></p><br>
+
+- With Coordination (Perform better)
+
+<p align="center"><img src="/MyPDF/CMR4.png" width = "600" ></p><br>
+각각의 로봇이 같은 지점으로 향하지 않고, 다른 지점을 탐사.<br>
+복도의 Utility가 감소.<br><br>
+
+### Simulation
+Unstructured, Office, Corridor에서 수치적 평가를 위해 Simulation 진행.<br><br>
+<p align="center"><img src="/MyPDF/CMR5.png" width = "500" ></p><br>
+<br>
+<p align="center"><img src="/MyPDF/CMR6.png" width = "700" ></p><br>
+Uncoordinated에 비해 탐사 시간 감소, 하지만 randomized 방식과 큰 차이 X
+<br><br>
+<p align="center"><img src="/MyPDF/CMR7.png" width = "400" ></p><br>
+계산 시간은 Uncoordinated에 비해 더 걸리지만, randomized 방식보다 더 적은 계산 시간을 보임.<br>
+--> 전체적인 성능이 좋다.
 
 📣<br>
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
