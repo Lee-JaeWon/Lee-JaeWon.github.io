@@ -28,17 +28,34 @@ Multi robot exploration task에서 **지도**는 필수불가결하다.<br>
 현재 Sample-based 탐사 방법은 낮은 계산량 혹은 계산 시간으로 인해 최첨단이다.(state-of-the-art)<br>
 하지만 이런 방법의 탐색의 효율성은 **두 가지의 근본적인 결함**으로 인해 궤도 중첩과 small passage(좁은 통로)에서 downgrade를 겪는다.<br><br>
 두 가지의 근본적인 결함 :
-- 1. 새로운 sampled frontier는 다른 frontier cluster 사이에서 목표 지점 점프를 발생시킨다.
-- 2. map에 커짐에 따라 map points의 개수에 따른 frontier의 개수의 비율이 줄어든다.
+- 새로운 sampled frontier는 다른 frontier cluster 사이에서 목표 지점 점프를 발생시킨다.
+- map에 커짐에 따라 map points의 개수에 따른 frontier의 개수의 비율이 줄어든다.
 
 대체적으로, 지도의 sampled 정보만 이용하는 것은 비난받아야한다.(?)<br><br>
 따라서, 더 많은 계산 자원의 희생 없이 frontier를 감지하고 선택하기 위해 완전한 지도 정보를 활용할 수 있는 새로운 탐색 패러다임이 요구된다.<br><br>
 본 논문의 제안 방식:
-- 1. Fully submap-based DSLAM Method. submap에 기반한 Place Recognition과 Relative Pose를 로봇간 공유한다.(30%의 데이터 중복 통신을 제거한다.)
-- 2. **M**ulti-Robot **M**ulti-target **P**otential **F**ield (MMPF) exploration method. MMPF는 Frontier의 완전한 정보를 활용하여 최적의 Frontier 목표를 선정함으로써 궤적 중복을 제거하고 탐사 효율을 높인다.
+- Fully submap-based DSLAM Method. submap에 기반한 Place Recognition과 Relative Pose를 로봇간 공유한다.(30%의 데이터 중복 통신을 제거한다.)
+- **M**ulti-Robot **M**ulti-target **P**otential **F**ield (MMPF) exploration method. MMPF는 Frontier의 완전한 정보를 활용하여 최적의 Frontier 목표를 선정함으로써 궤적 중복을 제거하고 탐사 효율을 높인다.
 <p align="center"><img src="/MyPDF/SMMR1.png" width = "500" ></p><br>
 
 - Cartographer이용 단일 로봇이 submap을 구축.<br><br>
 - submap을 연결하면 단일 로봇 맵이 생성되고, 주어진 relative pose를 통해 로봇 간 맵이 병합된다.<br><br>
 - 각 submap은 로봇 간 공유되며, NN-Based 방법은 각 submap을 feature vector로 인코딩하여 로봇 간 loop closure를 감지하기 위해 추가 매칭을 수행한다.<br><br>
 - MMPF 기반 탐색 방법은 own-single robot map 혹은 merged global map을 통해 로봇을 guide한다.<br><br>
+
+## 3. Submap-Based DSLAM
+<p align="center"><img src="/MyPDF/SMMR1.png" width = "500" ></p><br>
+위 Fig. 1.과 같이 DSLAM 시스템에서 로봇 간 데이터를 처리하는 데는 두 가지의 주요한 요소가 있다.<br>
+
+- Place recognition and Matching (PR)
+
+- inter-robot relative pose estimation<br>
+로봇 간 상대 위치 추정
+
+파트 3 에서는(현재 파트) 이 둘을 submap에 기반해 구현한다.
+<p align="center"><img src="/MyPDF/SMMR2.png" width = "500" ></p><br>
+
+$ m_{\alpha_{i}} $는 robot $ \alpha $의 $i$번째 submap을 의미한다.<br><br>
+**Place Recognition method**는 같은 장소를 찾기 위해 $ m_{\alpha_{i}} $의 descriptor를 매치한다.<br><br>
+**Relative Pose Estimation method**는 $ m_{\alpha_{i}} $, $ m_{\beta_{j}} $ 두 submap 사이의 geometric confidence 인 $C_{\alpha_{i}}^{\beta_{j}}$ 와<br>
+geometric transformation인 $Z_{\alpha_{i}}^{\beta_{j}}$ 를 출력한다.
