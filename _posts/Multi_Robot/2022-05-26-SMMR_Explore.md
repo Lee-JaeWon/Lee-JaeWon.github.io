@@ -43,6 +43,17 @@ Multi robot exploration task에서 **지도**는 필수불가결하다.<br>
 - 각 submap은 로봇 간 공유되며, NN-Based 방법은 각 submap을 feature vector로 인코딩하여 로봇 간 loop closure를 감지하기 위해 추가 매칭을 수행한다.<br><br>
 - MMPF 기반 탐색 방법은 own-single robot map 혹은 merged global map을 통해 로봇을 guide한다.<br><br>
 
+## 2. Related Work
+### A. DSLAM System
+[centralized나 decentralized 방식](https://lee-jaewon.github.io/multi_robot/Multi_Robot_SLAM_overview/#a-centralized-vs-decentralized)과 같은 이전의 multi-robot SLAM 시스템은 두 가지의 기본적인 요소를 포함한다.<br>
+- Place Recognition
+- Relative Pose Estimation
+<br>
+이 방법들은 모두 같은 장소를 찾아내기 위한 place descriptor를 계산한다.<br>
+
+하지만 센서나 방식에 따라 다른 유형의 데이터를 사용하는데,<br> image sensor 데이터를 이용하는 NetVLAD나 image feature point에 기반하는 Bag of Words나 3D laser sensor data를 이용하는 Segmatch 등이 있다.<br><br>
+Geometric Vertification (이미지 feature간 매칭과 같은 것)의 추정과 place descriptor의 two frame 간의 relative position을 최적화하는 것은 비슷하다.
+
 ## 3. Submap-Based DSLAM
 <p align="center"><img src="/MyPDF/SMMR1.png" width = "500" ></p><br>
 위 Fig. 1.과 같이 DSLAM 시스템에서 로봇 간 데이터를 처리하는 데는 두 가지의 주요한 요소가 있다.<br>
