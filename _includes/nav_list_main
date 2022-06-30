@@ -96,6 +96,16 @@
                 {% endfor %}
             </ul>
 
+        <!--GitHub 관련 카테고리 입니다.-->
+        <span class="nav__sub-title">GitHub</span>
+        <ul>
+            {% for category in site.categories %}
+                {% if category[0] == "github" %}
+                    <li><a href="/categories/github" class="">GitHub ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
         <!--MCU 관련 카테고리 입니다.-->
         <span class="nav__sub-title">Firmware</span>
             <ul>
