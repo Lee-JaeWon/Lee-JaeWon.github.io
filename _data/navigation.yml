@@ -3,6 +3,8 @@ main:
     url: /Aboutme/
   - title: "Posts"
     url: /categories/
+  - title: "Email"
+    url: /Aboutme/email/
 
 
 side:
