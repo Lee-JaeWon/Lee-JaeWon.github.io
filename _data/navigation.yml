@@ -4,7 +4,7 @@ main:
   - title: "Posts"
     url: /categories/
   - title: "Email"
-    url: /Aboutme/email/
+    url: /Aboutme/email
 
 
 side:
