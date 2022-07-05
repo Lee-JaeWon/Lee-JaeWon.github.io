@@ -124,7 +124,7 @@ author:
       url: "https://github.com/Lee-JaeWon/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/ash__circle_/"
+      # url: "https://www.instagram.com/ash__circle_/"
 
 # Site Footer
 footer:
