@@ -33,4 +33,4 @@ toc: true
 
 
 ## CV
-[Lee-JaeWon's CV (Link)](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/LeeJaeWon_CV.pdf)
+[Lee-JaeWon's CV (Link)](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf)
