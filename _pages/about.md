@@ -27,10 +27,10 @@ toc: true
 
 * Undergraduate student at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
 
+* R&D Intern of [Robomation](https://robomation.net/). (2022.6~Present)
+
 * Contact me. [Jaewon Lee's e-mail](email)
 
 
 ## CV
 [Lee-JaeWon's CV (Link)](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/LeeJaeWon_CV.pdf)
-<p align="center"><img src="/MyPDF/Lee-JaeWon_CV_1.jpg" width = "800" ></p>
-<p align="center"><img src="/MyPDF/Lee-JaeWon_CV_2.jpg" width = "800" ></p>
