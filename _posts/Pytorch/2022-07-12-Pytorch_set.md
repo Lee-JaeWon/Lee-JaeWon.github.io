@@ -1,5 +1,5 @@
 ---
-title : "Pytorch 환경 구축 및 YOLOv5 Test (Windows, GPU)"
+title : "Pytorch 환경 구축 및 Test (Windows, GPU)"
 category :
     - Pytorch
 tag :
@@ -10,7 +10,7 @@ comments: true
 sidebar_main: true
 ---
 
-Pytorch를 위한 Anaconda 환경 설정 및 환경 구축 후 YOLOv5를 테스트하는 포스팅입니다.
+Pytorch를 위한 Anaconda 환경 설정 및 환경 구축 후 테스트하는 포스팅입니다.
 <br><br>
 
 # Pytorch Anaconda 환경 설정 for windows
