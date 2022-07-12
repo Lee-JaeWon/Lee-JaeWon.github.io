@@ -10,8 +10,8 @@ comments: true
 sidebar_main: true
 ---
 
-**Ready**
-
+Pytorch를 위한 Anaconda 환경 설정 및 환경 구축 후 YOLOv5를 테스트하는 포스팅입니다.
+<br><br>
 
 # Pytorch Anaconda 환경 설정 for windows
 ## Anaconda 가상 환경 생성(Python 3.7)
@@ -55,7 +55,27 @@ conda install -c anaconda cudnn
 위 명령어를 통해 cuDNN을 설치하니 8.2.1 버전이 설치되었다.<br><br>
 
 ## Pytorch GPU 설치
-## Test
+[Pytorch Install](https://pytorch.org/get-started/locally/)에서<br>
+<p align="center"><img src="/MyPDF/pytorch(1).png" width = "700" ></p>
+위 사진처럼 CUDA버전을 설정해주고 본인의 환경을 잘 설정해주면 설치할 수 있는 명령어를 제공한다.
+```
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+```
+마찬가지로 생성한 가상환경을 활성화해주고, 설치를 진행한다.<br><br>
+
+## Pytorch Test
+Pytorch가 가상 환경에 잘 설치되었는지, GPU 환경이 잘 구축되었는지 확인해보겠다.<br><br>
+취향 상 본인은 Jupyter Notebook을 이용하겠다.<br><br>
+<p align="center"><img src="/MyPDF/pytorch(4).png" width = "500" ></p>
+위 사진과 같은 명령어를 통해 GPU 사용 가능 상태와 정보를 얻을 수 있다.<br>
+```python
+import torch
+
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name(0))
+print(torch.cuda.device_count())
+```
+
 
 📣<br>
 본 포스팅의 언어 및 개발 환경 : `Windows10`, `Python 3.7`, `Pytorch`, `GPU`, `Anaconda`<br>
