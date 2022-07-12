@@ -49,6 +49,10 @@
                         <li><a href="/categories/Reinforcement_Learning" class="">Reinforcement Learning ({{category[1].size}})</a></li>
                     {% endif %}
 
+                    {% if category[0] == "Pytorch" %}
+                        <li><a href="/categories/Pytorch" class="">Pytorch ({{category[1].size}})</a></li>
+                    {% endif %}
+
                     <!--{% if category[0] == "Research" %}-->
                         <!--<li><a href="/categories/Research" class="">Research ({{category[1].size}})</a></li>-->
                     <!--{% endif %}-->
