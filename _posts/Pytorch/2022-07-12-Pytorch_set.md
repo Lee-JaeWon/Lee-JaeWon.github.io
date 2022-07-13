@@ -14,14 +14,15 @@ Pytorch를 위한 Anaconda 환경 설정 및 환경 구축 후 테스트하는 �
 <br><br>
 
 # Pytorch Anaconda 환경 설정 for windows
-## Anaconda 가상 환경 생성(Python 3.8)
-먼저 Anaconda prompt에서 Python 3.8 버전의 가상환경을 생성해주겠다.<br>(Anaconda는 이미 설치되어있다고 가정한다.)
+## Anaconda 가상 환경 생성(Python 3.7)
+먼저 Anaconda prompt에서 Python 3.7 버전의 가상환경을 생성해주겠다.<br>(Anaconda는 이미 설치되어있다고 가정한다.)
 ```
-conda create -n Pytorch python=3.8
+conda create -n Pytorch python=3.7
 ```
 위 명령어는 `conda create -n 가상환경 이름 python=생성할 가상 환경의 파이썬 버전 명시`이다.<br><br>
 파이썬 버전은 명시해 주지 않아도 되지만, 어차피 파이썬이 필요한 경우라면 가상 환경 생성 후에 설치해 주어야 하기 때문에 명시해 준다.<br><br>
-**파이썬 버전은 사용하고자 하는 환경에 따라** 적절히 선택해 주어야 할 필요성이 있다.<br><br>
+**파이썬 버전은 사용하고자 하는 환경에 따라** 적절히 선택해 주어야 할 필요성이 있다.<br>
+(버전을 달리하여 독립적으로 사용하기 위해 가상환경을 사용하는 것이 가장 크다고 생각한다.)<br><br>
 생성한 가상환경을 활성화하는 방법은 다음과 같다.<br>
 활성화해주면 생성한 가상환경 내에서 수행할 수 있게 된다.
 ```
@@ -78,6 +79,6 @@ print(torch.cuda.device_count())
 
 
 📣<br>
-본 포스팅의 언어 및 개발 환경 : `Windows10`, `Python 3.8`, `Pytorch`, `GPU`, `Anaconda`<br>
+본 포스팅의 언어 및 개발 환경 : `Windows10`, `Python 3.7`, `Pytorch`, `GPU`, `Anaconda`<br>
 포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
 {: .notice--info}
