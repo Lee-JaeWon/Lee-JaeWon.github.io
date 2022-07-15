@@ -78,3 +78,13 @@ python tools/demo.py --source inference/images
 그러면 `inference/output`에 테스트 결과가 저장된다.<br><br>
 <p align="center"><img src="/MyPDF/yolop(2).jpg" width = "500" ></p>
 <p align="center"><img src="/MyPDF/yolop(3).jpg" width = "500" ></p>
+위 두 사진은 이미 제공된 사진으로 테스트한 것이고,<br>
+실제 다른 사진으로도 테스트해 볼 수 있다.<br><br>
+(다만 이미지를 가져올 때 **사이즈가 1280*720을 만족하지 않으면**, demo.py가 작동하지 않는다.)<br>
+<p align="center"><img src="/MyPDF/yolop(4).jpg" width = "500" ></p>
+위 사진은 우리나라의 주행 사진을 가져와 테스트해 본 것이다.<br>
+
+<br>
+
+# About YOLOP
+YOLOP (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)에 대해 간단하게 알아보자.<br><br>
