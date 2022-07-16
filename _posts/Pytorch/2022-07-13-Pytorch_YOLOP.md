@@ -13,6 +13,8 @@ sidebar_main: true
 Pytorch **YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)를 테스트해보는 포스팅입니다.(작업 중)
 <br><br>
 
+YOLOP에 대한 내용은 [본 포스팅의 About YOLOP](https://lee-jaewon.github.io/pytorch/Pytorch_YOLOP/#about-yolop)에 포스팅합니다.
+
 # YOLOP
 [Pytorch Hub : YOLOP](https://pytorch.org/hub/hustvl_yolop/)<br>
 [GitHub : YOLOP](https://github.com/hustvl/YOLOP)<br>
@@ -28,6 +30,8 @@ Pytorch **YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)를 테스
 from [GitHub : YOLOP](https://github.com/hustvl/YOLOP)<br>
 
 ## 요구 사항
+<br>
+(Windows에서 Pytorch에 대한 환경 설정은 [다음 포스팅](https://lee-jaewon.github.io/pytorch/Pytorch_set/)에서 확인할 수 있다.)<br><br>
 YOLOP를 실행하기 위한 요구 사항이 있다.<br><br>
 먼저 python 3.7에서 개발되었고, Pytorch 1.7 이상, torchvision 0.8 이상이 요구된다.<br><br>
 처음에 Python 버전 요구 사항을 맞추지 않았더니 다른 요구 패키지를 설치하지 못했었다.<br>주의해야하는 것으로 보인다.<br>
@@ -87,4 +91,35 @@ python tools/demo.py --source inference/images
 <br>
 
 # About YOLOP
-YOLOP (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)에 대해 간단하게 알아보자.<br><br>
+## Abstract
+**YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)에 대해 간단하게 알아보자.<br><br>
+**Panoptic driving perception**은 자율 주행에서의 중요한 부분 중 하나이다.<br><br>
+높은 정확도와 실시간성은 주행으로 하여금 이유있는 의사결정을 할 수 있도록 돕는다.<br><br>
+YOLOP 논문에서는 차량 인식과 주행 가능 영역(drivable area)의 segmentation, 차선 인식을 **동시에** 하기 위한 panoptic driving perception network를 제시한다.<br><br>
+이는 특징 추출(feature extraction)을 위한 **하나의 Encoder**와 특정 task들을 다루기 위한 **세 개의 decoder**로 이루어져있다.<br><br>
+논문 상에서는 세 가지 인식 task들을 동시에 실시간성을 보장하여 진행해주는 첫 번째 work라 언급한다.<br><br>
+BDD100K dataset에서 잘 작동한다.<br>
+
+## Panoptic vs Instance
+**Panoptic perception**이라는 단어에 대해 알지 못해 이를 알아보고, 둘을 비교해본다.<br><br>
+segmentation 분야에서 파생된 단어같은데,<br>
+Instance segmetation은 같은 물체 클래스에서도 instance가 다르면, 같은 의자라도 각각을 다른 것으로 인식한다.<br>
+<p align="center"><img src="/MyPDF/yolop(6).png" width = "700" ></p>
+
+<br>
+Panoptic segmentation은 관심을 가질만한 물체들의 instance까지 구분해서 segmentation을 수행한다고 한다.
+<p align="center"><img src="/MyPDF/yolop(7).png" width = "700" ></p>
+<br><br>
+위 차이로부터 Panoptic perception이라고 지칭하는 것 같다.<br>
+
+출처 : [https://velog.io/@babydeveloper/InstancePanoptic-segmentation](https://velog.io/@babydeveloper/InstancePanoptic-segmentation)
+
+## About model
+<p align="center"><img src="/MyPDF/yolop(5).png" width = "700" ></p>
+Traffic Object Detection에 필요한 모델 하나, Lane Detection에 필요한 모델 하나, Driving area segmentation에 필요한 모델 하나<br>즉, 각 인식과 segmentation에 필요한 여러 네트워크들을 하나의 인코더가 공유하게 된다.<br><br>
+전체적인 모델의 자세한 구조는 추후 더 살펴보도록 하겠다.<br>
+
+📣<br>
+본 포스팅의 언어 및 개발 환경 : `Windows10`, `Python 3.8`, `Pytorch`, `GPU`, `Anaconda`<br>
+포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡
+{: .notice--info}
