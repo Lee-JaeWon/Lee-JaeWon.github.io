@@ -10,10 +10,10 @@ comments: true
 sidebar_main: true
 ---
 
-Pytorch **YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)를 테스트해보는 포스팅입니다.(작업 중)
+Pytorch **YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)를 테스트해보는 포스팅입니다.
 <br><br>
 
-YOLOP에 대한 내용은 [본 포스팅의 About YOLOP](https://lee-jaewon.github.io/pytorch/Pytorch_YOLOP/#about-yolop)에 포스팅합니다.
+YOLOP에 대한 내용은 [본 포스팅의 About YOLOP](https://lee-jaewon.github.io/pytorch/Pytorch_YOLOP/#about-yolop)에서 포스팅합니다.
 
 # YOLOP
 [Pytorch Hub : YOLOP](https://pytorch.org/hub/hustvl_yolop/)<br>
@@ -95,13 +95,13 @@ python tools/demo.py --source inference/images
 **YOLOP** (YOU ONLY LOOK ONCE FOR PANOPTIC DRIVING PERCEPTION)에 대해 간단하게 알아보자.<br><br>
 **Panoptic driving perception**은 자율 주행에서의 중요한 부분 중 하나이다.<br><br>
 높은 정확도와 실시간성은 주행으로 하여금 이유있는 의사결정을 할 수 있도록 돕는다.<br><br>
-YOLOP 논문에서는 차량 인식과 주행 가능 영역(drivable area)의 segmentation, 차선 인식을 **동시에** 하기 위한 panoptic driving perception network를 제시한다.<br><br>
+YOLOP 에서는 **차량 인식**과 **주행 가능 영역(drivable area)의 segmentation**, **차선 인식**을 **동시에** 하기 위한 panoptic driving perception network를 제시한다.<br><br>
 이는 특징 추출(feature extraction)을 위한 **하나의 Encoder**와 특정 task들을 다루기 위한 **세 개의 decoder**로 이루어져있다.<br><br>
-논문 상에서는 세 가지 인식 task들을 동시에 실시간성을 보장하여 진행해주는 첫 번째 work라 언급한다.<br><br>
+논문 상에서는 YOLOP가 세 가지 인식 task들을 동시에 실시간성을 보장하여 진행해주는 첫 번째 work라 언급한다.<br><br>
 BDD100K dataset에서 잘 작동한다.<br>
 
 ## Panoptic vs Instance
-**Panoptic perception**이라는 단어에 대해 알지 못해 이를 알아보고, 둘을 비교해본다.<br><br>
+**Panoptic perception**이라는 단어에 대해 알지 못해 이를 알아본다.<br><br>
 segmentation 분야에서 파생된 단어같은데,<br>
 Instance segmetation은 같은 물체 클래스에서도 instance가 다르면, 같은 의자라도 각각을 다른 것으로 인식한다.<br>
 <p align="center"><img src="/MyPDF/yolop(6).png" width = "700" ></p>
