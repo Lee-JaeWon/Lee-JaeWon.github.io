@@ -101,7 +101,7 @@
             </ul>
 
         <!--GitHub 관련 카테고리 입니다.-->
-        <span class="nav__sub-title">GitHub</span>
+        <span class="nav__sub-title">GitHub & GitBlog</span>
         <ul>
             {% for category in site.categories %}
                 {% if category[0] == "github" %}
