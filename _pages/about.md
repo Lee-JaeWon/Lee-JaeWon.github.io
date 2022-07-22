@@ -19,7 +19,7 @@ toc: true
 --------------------------------------  
 <h3 align="left">👉About Me </h3>
 
-* [Department of Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~)
+* B.S. Student, [Department of Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~)
     * Major in Intelligent System
 
 * Club : [BARAM](https://cafe.naver.com/roboticsbaram) (Robotics Academic Group). (2020.3~)
@@ -27,7 +27,7 @@ toc: true
 
 * Undergraduate student at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
 
-* R&D Intern of [Robomation](https://robomation.net/). (2022.6~Present)
+* R&D Intern, [Robomation](https://robomation.net/). (2022.7~Present)
 
 * Open Source Contribution Academy, Mentee, Translating [Pytorch Hub](https://pytorch.org/hub/) into Korean. (2022.7~Present)
 
