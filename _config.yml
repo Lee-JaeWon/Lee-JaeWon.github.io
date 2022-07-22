@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Lee Jae Won"
   avatar           : "/assets/Profile_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am a student of the School of **Robotics**."
+  bio              : "B.S. Student, Department of **Robotics**."
   location         : "Seoul, Republic of Korea"
   email            : "jawwoni@naver.com"
   links:
@@ -146,7 +146,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/ash__circle_/"
+      # url: "https://www.instagram.com/ash__circle_/"
 
 
 # Reading Files
