@@ -16,7 +16,7 @@ Multi-Robot SLAM system의 대략적인 이해를 위한 논문 리뷰 포스팅
 **Reference** : Mahmoud A. Abdulgalil, (2018), Multi-robot SLAM: An Overview and Quantitative Evaluation of MRGS ROS Framework for MR-SLAM, RiTA 2017: Robot Intelligence Technology and Applications 5 pp 165-183
 
 ## 1. Introduction
-### Autonmous Vehicle 개요
+### Autonomous Vehicle 개요
 
 Autonomous Vehicle(차량, 모바일 로봇)의 중요한 요구사항은 실내/실외, 구조물이 있거나 없거나 동적이거나 정적이거나 하는 상황(환경)에서의 인식이다.
 
