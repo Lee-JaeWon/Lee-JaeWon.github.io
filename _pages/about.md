@@ -16,6 +16,11 @@ toc: true
 🔎 **SLAM**<br>
 🔎 **Cooperative Autonomous Driving - Smart Road Technology**<br>
 
+<br>
+
+**If you want to know more about me, please see my [CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf).**
+<br>
+
 --------------------------------------  
 <h3 align="left">👉About Me </h3>
 
@@ -36,3 +41,6 @@ toc: true
 
 ## CV
 [Lee-JaeWon's CV (Link)](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf)
+
+## Linkedin
+[Linkedin : LeeJaewon](https://www.linkedin.com/in/jaewon-lee-profile/)
