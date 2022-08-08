@@ -10,6 +10,9 @@ comments: true
 sidebar_main: true
 ---
 
+(+ 많은 분들이 이 포스팅과 관련한 오류를 겪고 있는 것으로 보입니다.<br>
+아래 방법으로 해결이 안 되거나 추가적인 오류가 있다면 [메일](https://lee-jaewon.github.io/Aboutme/email) 혹은 **하단 코멘트**를 남겨주시면 수분 내로 확인하여 답변드릴 수 있도록 하겠습니다.)<br>
+
 ## 겪은 문제점
 먼저 우분투 20.04가 아닌 18.04를 사용하고자함.<br><br>
 Nvidia graphics driver나 CUDA등을 설치하려고 했는데 뭐가 문젠지 설치 이후 재부팅을 하기만 하면
