@@ -32,7 +32,7 @@ toc: true
 
 * Undergraduate student at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
 
-* R&D Intern, [Robomation](https://robomation.net/). (2022.7~Present)
+* R&D Intern, [Robomation](https://robomation.net/). (2022.7~2022.8)
 
 * 2022 Open Source Contribution Academy, Mentee, Translating [Pytorch Hub](https://pytorch.org/hub/) into Korean. (2022.7~Present)
 
