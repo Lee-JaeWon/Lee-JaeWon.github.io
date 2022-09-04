@@ -96,7 +96,7 @@ $m$은 장애물의 개수이다.<br>
 여기서 $T_h$는 시스템 dynamics, 장애물 궤적 및 회피 동작의 계산 속도를 기반으로 선택된 적절한 시간 범위이다.<br><br>
 imminent collisions를 설명하기 위해 아래 식 처럼 정의 된 $VO_h$ 집합을 빼서 $VO$ 집합을 수정한다.
 
-$$ VO_h = \{ v_A \mid v_A \cap VO, \ \parallel v_{A,B} \parallel \le \frac{d_m}{T_h} \} $$
+$$ VO_h = \{ v_A \mid v_A \in VO, \ \parallel v_{A,B} \parallel \le \frac{d_m}{T_h} \} $$
 
 여기서 $d_m$은 로봇과 장애물 사이의 가장 짧은 상대 거리이다.<br><br>
 결국 $VO_h$ 집합은 시간 지평선(time horizon) 너머에서 발생하는 충돌을 초래할 수 있는 속도를 나타내게 된다.<br><br>
@@ -104,12 +104,25 @@ Figure5는 $VO_h$가 제거된 속도인 modified VO를 나타낸다.
 <p align="center"><img src="/MyPDF/multi_vo(6).png" width = "500" ></p>
 <br>
 
+## The Avoidance Maneuver
+이 섹션에서는 주어진 시간 범위내에서 미래의 충돌을 피하기위한 속도의 한 단계 변화로 구성된 회피 동작을 설명한다.<br><br>
+로봇 역학 및 액추에이터 constraint를 설명하는 도달가능한 속도들의 집합에 대해 논의하는 것으로 시작한다.<br><br>
+
+### The Reachable Avoidance Velocities
+주어진 시간 간격 $\delta t$에 걸쳐 주어진 상태에서 로봇 A가 도달 가능한 속도는 actuator 제약 조건을 가속 제약 조건에 매핑하여 계산된다.<br><br>
+<p align="center"><img src="/MyPDF/multi_vo(7).png" width = "500" ></p>
+
+time $t$에 실현 가능한 가속도(**f**easible **a**cclerations), $FA(t)$는 다음과 같이 정의된다.
+
+$$ FA(t)=\{ \ddot{x} \mid \ddot{x}=f(x,\dot{x},u), \ u \in U \} $$
+
+
 
 # Minkowski Sum
 기하학에서, 유클리드 공간의 위치벡터 A와 B의 두 집합의 **민코프스키 합**은<br><br>
 A에 있는 모든 벡터를 B에 있는 각각의 벡터에 더해서 만들어진다.<br><br>
 
-$$ A \oplus B==\{ a+b \mid a \cap A, \ b \cap B \} $$
+$$ A \oplus B=\{ a+b \mid a \cap A, \ b \cap B \} $$
 
 
 # Reference
