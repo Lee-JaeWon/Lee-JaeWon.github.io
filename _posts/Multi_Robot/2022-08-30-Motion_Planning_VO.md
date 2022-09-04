@@ -19,7 +19,7 @@ Human Interaction이 가능한 Robot Navigation을 위해서는 단순히 로봇
 Motion Planning 기법 중 하나인 VO(Velocity Obstacles)라는 속도 공간에 대한 개념을 더해 한 작업 공간에 여러 로봇과 여러 사람이 있을 때 원하는 속도에는 가깝지만, 충돌에는 자유로운 속도를 찾아낸다.<br><br>
 Path Planning과 Motion Planning의 차이는 설명에 따라 모호할 수도 있다.<br><br>
 하지만 경로 계획은 원하는 상태로 도달하기 위해 경로를 찾는 문제를 설명하는데 사용될 수 있으며,<br>
-모션 계획 혹은 모션 제어는 동일한 문제를 설명하지만, 구체적으로 로봇이 계획된 경로를 따르기 위해 실행해야 하는 실제 명령에 관한 동작을 수행할 수 있다.<br><br>
+모션 계획 혹은 모션 제어는 동일한 문제를 설명하지만, time step이 고려되며, 구체적으로 로봇이 계획된 경로를 따르기 위해 실행해야 하는 실제 명령에 관한 동작을 수행할 수 있다.<br><br>
 Multi Robot이 단순히 Path Planning을 통해서만 목표를 달성하는 것이 아닌 로봇 간 관계를 인지하고 기하학적으로 장애물을 회피하여 사람들과 공존하기 위한 Motion Planning 알고리즘을 사용해서 task를 수행한다는 것의 차이에 대한 개념을 얻고자 한다.<br><br>
 
 # Basic Concept of VO
@@ -66,10 +66,51 @@ $Velocity \ Obstacle \ VO$는 다음과 같이 정의된다.<br>
 
 $$ VO=CC_{A,B} \oplus v_B $$
 
-$\oplus$는 **Minkowski vector sum**을 의미한다.
+$\oplus$는 [**Minkowski vector sum**](#minkowski-sum)을 의미한다.<br><br>
+VO는 A의 절대 속도를 회피 속도와 충돌 속도로 나눈다.<br><br>
+VO 밖에 있는 속도 $v_A$를 선택하면 B와의 충돌을 회피할 수 있다.<br>
 
+$$ A(t) \cap B(t) = \emptyset \ \ if \ \ v_{A}(t) \not\in VO(t) $$
 
+VO의 경계에서의 속도는 A가 B를 방목하는 결과를 초래할 것이다.<br><br>
+또한, 정지 장애물의 VO는 $v_B$가 $0$이므로, 아래 식에서<br>
+
+$$ VO=CC_{A,B} \oplus v_B \mid v_B = 0$$
+
+$$ VO=CC_{A,B} $$
+
+결국, $VO$는 상대 속도 원뿔과 동일하다.<br><br>
+
+multiple obstacle을 피하기 위해서는 각자의 VO의 합을 고려해야한다.<br>
+
+$$ VO=\bigcup\limits_{i=1}^m VO_{B_{i}}$$
+
+$m$은 장애물의 개수이다.<br>
+따라서 Figure4 처럼 회피 속도는 모든 VO 외부에 있는 속도 $v_A$로 구성된다.
+<p align="center"><img src="/MyPDF/multi_vo(5).png" width = "400" ></p>
+
+많은 장애물이 있는 경우, **충돌이 임박한 장애물**이 **충돌할 시간이 더 긴 사람보다 우선**하도록 장애물의 우선순위를 정하는 것에 유용할 수 있다.<br><br>
+게다가, $VO$는 장애물 궤적의 선형 근사치에 기반하기 때문에 장애물이 직선을 따라 이동하지 않을 경우 원격 충돌을 예측하기 위해 $VO$를 사용하는 것은 부정확할 수 있다.<br><br>
+
+어떤 시간 $t<T_h$에 로봇과 장애물 사이에 충돌이 발생할 경우 임박한(imminent) 충돌이라 부르며,<br>
+여기서 $T_h$는 시스템 dynamics, 장애물 궤적 및 회피 동작의 계산 속도를 기반으로 선택된 적절한 시간 범위이다.<br><br>
+imminent collisions를 설명하기 위해 아래 식 처럼 정의 된 $VO_h$ 집합을 빼서 $VO$ 집합을 수정한다.
+
+$$ VO_h = \{ v_A \mid v_A \cap VO, \ \parallel v_{A,B} \parallel \le \frac{d_m}{T_h} \} $$
+
+여기서 $d_m$은 로봇과 장애물 사이의 가장 짧은 상대 거리이다.<br><br>
+결국 $VO_h$ 집합은 시간 지평선(time horizon) 너머에서 발생하는 충돌을 초래할 수 있는 속도를 나타내게 된다.<br><br>
+Figure5는 $VO_h$가 제거된 속도인 modified VO를 나타낸다. 
+<p align="center"><img src="/MyPDF/multi_vo(6).png" width = "500" ></p>
 <br>
+
+
+# Minkowski Sum
+기하학에서, 유클리드 공간의 위치벡터 A와 B의 두 집합의 **민코프스키 합**은<br><br>
+A에 있는 모든 벡터를 B에 있는 각각의 벡터에 더해서 만들어진다.<br><br>
+
+$$ A \oplus B==\{ a+b \mid a \cap A, \ b \cap B \} $$
+
 
 # Reference
 - Kruse, T., Pandey, A.K., Alami, R., & Kirsch, A. (2013). **Human-aware robot navigation: A survey.** Robotics Auton. Syst., 61, 1726-1743.<br>
