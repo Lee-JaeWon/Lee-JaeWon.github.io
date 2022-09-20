@@ -10,7 +10,7 @@ comments: true
 sidebar_main: true
 ---
 
-Velocity Obstacle에 대해 알아본다.(작업 중)
+Velocity Obstacle에 대해 알아본다.
 
 # Intro
 Human Interaction이 가능한 Robot Navigation을 위해서는 단순히 로봇의 경로만을 추구하는 것이 아닌 여러 제약 조건과 사람과 공존하기 위한 사회적 규칙에 기반을 둔 적절한 접근법이 필요하다.<br><br>
@@ -104,18 +104,35 @@ Figure5는 $VO_h$가 제거된 속도인 modified VO를 나타낸다.
 <p align="center"><img src="/MyPDF/multi_vo(6).png" width = "500" ></p>
 <br>
 
-## The Avoidance Maneuver
+# Reciprocal Velocity Obstacles for real-time multi-agent navigation.(2008)
+## RVO(Recirprocal Velocity Obstacle)
+RVO(Recirprocal Velocity Obstacle)는 VO에서 발생하는 진동(Oscillation) 현상을 해결하기 위해 고안된 방법이다. 굉장히 간단한 방법으로 부드럽고, 안전한 동작을 가능하게 한다.<br><br>
+RVO역시 VO와 마찬가지로 서로 간의 직접적인 통신 없이 충돌 없는 동작이 가능하다.<br><br>
+VO에서 진동이 발생하는 이유는 두 물체 A, B가 있을 때, A는 B의 VO 밖에 있는 속도를 선정하며 충돌을 피하게 된다.<br>
+
+$$ A(t) \cap B(t) = \emptyset \ \ if \ \ v_{A}(t) \notin VO_B(t) $$
+
+하지만 충돌을 피하기 위해 선호된 이전의 속도인 는 다시 다음 time step과 다음 새로운 상황에 대해 새로운 VO를 계산하여 새로운 속도 가 계산될 것이다.<br><br>
+두 물체 A, B는 결국 목표를 향하기 때문에 다시 이전의 목표를 향한 속도를 선정하게되며, 다음 사이클에서는 다시 이러한 속도가 충돌을 일으킬 속도가 된다.<br><br>
+즉, VO 밖의 속도를 선정하고 다시 목표를 향한 속도를 선택하는 과정이 반복되며 진동이 일어난다.<br><br>
+RVO의 기본 원리는 굉장히 간단하다. VO 밖의 속도를 단순히 선택하는 것 대신 현재 속도와 다른 물체의 VO를 통해 나온 속도와의 평균을 선택한다.<br>
+
+$$ RVO^{A}_{B}(v_B, \ v_A) = \{ v'_A \mid 2v'_A - v'_A \in VO^{A}_{B}(v_B) \}  $$
+
+<p align="center"><img src="/MyPDF/multi_vo(8).png" width = "500" ></p>
+
+<!-- ## The Avoidance Maneuver
 이 섹션에서는 주어진 시간 범위내에서 미래의 충돌을 피하기위한 속도의 한 단계 변화로 구성된 회피 동작을 설명한다.<br><br>
 로봇 역학 및 액추에이터 constraint를 설명하는 도달가능한 속도들의 집합에 대해 논의하는 것으로 시작한다.<br><br>
 
 ### The Reachable Avoidance Velocities
-주어진 시간 간격 $\delta t$에 걸쳐 주어진 상태에서 로봇 A가 도달 가능한 속도는 actuator 제약 조건을 가속 제약 조건에 매핑하여 계산된다.<br><br>
+주어진 시간 간격 $\Delta t$에 걸쳐 주어진 상태에서 로봇 A가 도달 가능한 속도는 actuator 제약 조건을 가속 제약 조건에 매핑하여 계산된다.<br><br>
 <p align="center"><img src="/MyPDF/multi_vo(7).png" width = "500" ></p>
 
 time $t$에 실현 가능한 가속도(**f**easible **a**cclerations), $FA(t)$는 다음과 같이 정의된다.
 
 $$ FA(t)=\{ \ddot{x} \mid \ddot{x}=f(x,\dot{x},u), \ u \in U \} $$
-
+ -->
 
 
 # Minkowski Sum
