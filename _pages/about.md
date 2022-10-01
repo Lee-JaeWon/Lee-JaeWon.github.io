@@ -34,7 +34,7 @@ toc: true
 
 * R&D Intern, [Robomation](https://robomation.net/). (2022.7~2022.8)
 
-* 2022 Open Source Contribution Academy, Mentee, Translating [Pytorch Hub](https://pytorch.org/hub/) into Korean. (2022.7~Present)
+* 2022 Open Source Contribution Academy, Mentee, Translating [Pytorch Hub](https://pytorch.org/hub/) into Korean. (2022.7~2022.10)
 
 * Contact me. [Jaewon Lee's e-mail](email)
 
