@@ -64,3 +64,6 @@ Path Planning 보다 충돌 회피가 우선이 되는 경우, 벽 근처에 다
 동적 물체 인식도 LiDAR를 통해 이루어진다면 인간과의 상호 작용이 가능하지만 이것은 현재 알고리즘과는 다른 문제이다.<br><br>
 
 VO 알고리즘은 고전적인 방법일 수도 있으며, ROS1에서는 Local Path Planning을 다른 방법으로 수행하는 것이 사실이다.
+
+# GitHub
+[GitHub](https://github.com/Lee-JaeWon/Multi-Robot-Collision-Avoidance-with-VO)에 코드가 업로드 되어있습니다.
