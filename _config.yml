@@ -105,7 +105,7 @@ author:
   avatar           : "/assets/Profile_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "B.S. Student, Department of **Robotics**."
   location         : "Seoul, Republic of Korea"
-  email            : "jawwoni@naver.com"
+  email            : "https://lee-jaewon.github.io/Aboutme/email"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
