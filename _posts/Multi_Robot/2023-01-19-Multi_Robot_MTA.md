@@ -13,14 +13,14 @@ sidebar_main: true
 
 # 개요
 여러 자율주행 이동로봇이 물류를 옮기는 상황에서 효율성을 높이기 위해 한 번에 하나의 패키지만 배송하는 대신 둘 이상의 작업을 할당할 수 있도록 하는 것이 Multi Task Allocation(MTA)이다.<br><br>
-병원이라는 상황을 구체적으로 특정한 [논문[1] - Multi-robot multi-task allocation for hospital logistics]()을 리뷰하였고, 이 논문에서는 병원에서 Multi Robot System과 MTA가 왜 필요한지 단일 작업 할당에 비해 얼마나 효율이 증가하는지를 보인다.<br><br>
+병원이라는 상황을 구체적으로 특정한 [논문[1] - Multi-robot multi-task allocation for hospital logistics](https://lee-jaewon.github.io/multi_robot/Multi_Robot_MTA/#reference)을 리뷰하였고, 이 논문에서는 병원에서 Multi Robot System과 MTA가 왜 필요한지 단일 작업 할당에 비해 얼마나 효율이 증가하는지를 보인다.<br><br>
 
 ## 문제 상황
-먼저 병원에서 이동 로봇이 필요한 이유를 [논문[2] - Mobility Work: The Spatial Dimension of Collaboration at a Hospital]()을 통해 알아본다.<br><br>
+먼저 병원에서 이동 로봇이 필요한 이유를 [논문[2] - Mobility Work: The Spatial Dimension of Collaboration at a Hospital](https://lee-jaewon.github.io/multi_robot/Multi_Robot_MTA/#reference)을 통해 알아본다.<br><br>
 병원에는 병실, 회의실, 사무실 등 공간이 분산되어 있으며, 병원에 있는 모든 작업자는 도보로 많은 거리를 이동해야한다.<br>
 침대, 테이블, 의료기기, 의료기록, 음식 등 많은 것들이 병원 내에서 끊임없이 이동한다.<br><br>
 이를 위해 천장이나 벽 내부에 레일이나 물류를 지정된 곳으로 옮길 수 있도록 구성된 곳 또한 존재한다.<br><br>
-[논문[2]]()에서 제시하는 자료 중, 군로자들의 평균 도보 거리는 근무 시간 동안 10km에 이르고 운송 작업은 일주일에 최대 195시간 발생한다.<br><br>
+[논문[2]](https://lee-jaewon.github.io/multi_robot/Multi_Robot_MTA/#reference)에서 제시하는 자료 중, 군로자들의 평균 도보 거리는 근무 시간 동안 10km에 이르고 운송 작업은 일주일에 최대 195시간 발생한다.<br><br>
 하지만 추후 노동력의 감소는 어느 정도 예견할 수 있으며, 이를 대체하기 위해 모바일 로봇이 도입되거나 물류를 위한 시스템이 도입된다.<br><br>
 
 # Task Allocation Algorithm
@@ -33,7 +33,7 @@ sidebar_main: true
 MTA에서 이동 거리를 최소화하기 위해 선택한 로봇의 경로를 다시 계획해야한다.<br><br>
 선택한 로봇은 현재 작업을 위해 향해야하는 지점과 추가된 새로 방문해야할 지점이 존재한다.<br>
 최적의 경로를 찾기 위해 두 지점(POI)를 연결해야한다.<br><br>
-최적을 다루기 위한 카테고리는 배터리, Capacity, 거리 등이 있지만, [본 논문 - 논문[1]]()에서는 거리만을 고려하였다.<br><br>
+최적을 다루기 위한 카테고리는 배터리, Capacity, 거리 등이 있지만, [본 논문 - 논문[1]](https://lee-jaewon.github.io/multi_robot/Multi_Robot_MTA/#reference)에서는 거리만을 고려하였다.<br><br>
 MTA는 모든 로봇의 현재 위치에서 **새로 추가된** 픽업 위치까지의 경로를 계산하여 새로운 작업을 받을 로봇을 선정한다.<br><br>
 여러 task가 존재하는 상황에서 가장 짧은 거리를 도출하기 위해 두 가지 계산을 수행하고, 이 중 더 짧은 거리를 선정한다.<br><br><br>
 먼저, 현재 로봇은 현재 작업을 수행중이며 새로운 작업이 호출되기 전 상황은 다음과 같다.<br>
@@ -59,3 +59,8 @@ STA는 이미 작업 중인 로봇이 많을 수록 로봇을 할당 받기 위�
 # Reference
 - [1] S. Jeon and J. Lee, "Multi-robot multi-task allocation for hospital logistics," 2016 18th International Conference on Advanced Communication Technology (ICACT), PyeongChang, Korea (South), 2016, pp. 1-1, doi: 10.1109/ICACT.2016.7423383.
 - [2] Bardram, J.E., Bossen, C. Mobility Work: The Spatial Dimension of Collaboration at a Hospital. Comput Supported Coop Work 14, 131–160 (2005). https://doi.org/10.1007/s10606-005-0989-y
+
+📣<br>
+포스팅에 대한 오류나 궁금한 점은 Comments를 작성해주시면, 많은 도움이 됩니다.💡<br>
+논문에서 발췌한 사진 자료나 내용의 저작권은 논문 저자에게 있습니다.
+{: .notice--info}
