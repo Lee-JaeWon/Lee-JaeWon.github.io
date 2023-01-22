@@ -37,19 +37,19 @@ MTA에서 이동 거리를 최소화하기 위해 선택한 로봇의 경로를 
 MTA는 모든 로봇의 현재 위치에서 **새로 추가된** 픽업 위치까지의 경로를 계산하여 새로운 작업을 받을 로봇을 선정한다.<br><br>
 여러 task가 존재하는 상황에서 가장 짧은 거리를 도출하기 위해 두 가지 계산을 수행하고, 이 중 더 짧은 거리를 선정한다.<br><br><br>
 먼저, 현재 로봇은 현재 작업을 수행중이며 새로운 작업이 호출되기 전 상황은 다음과 같다.<br>
-<p align="center"><img src="/MyPDF/MTA(1).png" width = "500" ></p>
+<p align="center"><img src="/MyPDF/MTA(1).png" width = "400" ></p>
 새로운 작업 P2-D2가 호출되었다.(픽업위치2-배달위치2)<br>
-<p align="center"><img src="/MyPDF/MTA(2).png" width = "500" ></p>
+<p align="center"><img src="/MyPDF/MTA(2).png" width = "400" ></p>
 언급한 두 가지 계산 방법은 결국 [현재 위치로 부터 기존 작업을 지나 새로운 작업으로 가는게 가까운지] **or** [새로운 작업을 지나 기존 작업으로 가는 것이 더 가까운지]를 판단하는 것이다.<br>
-<p align="center"><img src="/MyPDF/MTA(3).png" width = "700" ></p>
+<p align="center"><img src="/MyPDF/MTA(3).png" width = "600" ></p>
 
 # Experiment
 STA와 MTA의 알고리즘 성능 비교는 할당 시간, 픽업 대기 시간, 배송 시간으로 비교된다.<br><br>
-<p align="center"><img src="/MyPDF/MTA(4).png" width = "700" ></p>
+<p align="center"><img src="/MyPDF/MTA(4).png" width = "600" ></p>
 파란색 선은 STA, 빨간색 선은 MTA이다.<br><br>
 STA는 이미 작업 중인 로봇이 많을 수록 로봇을 할당 받기 위한 대기 시간이 증가한다.(a)<br>
 호출 후, 픽업을 위해 실제로 로봇이 도착할 때 까지 걸리는 시간 또한 STA는 증가하는 반면, MTA는 상대적으로 짧게 유지된다.<br><br>
-<p align="center"><img src="/MyPDF/MTA(5).png" width = "700" ></p>
+<p align="center"><img src="/MyPDF/MTA(5).png" width = "600" ></p>
 작업 수와 시간을 비교할 때, 마찬가지로 MTA가 104.67% 더 많이 작업을 완료했다.(본 논문에서 지정한 시뮬레이션 환경에서의 수치)<br><br>
 
 # 본인의 고찰
