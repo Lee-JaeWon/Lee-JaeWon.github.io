@@ -42,7 +42,8 @@ ROS noetic에서 HOKUYO 사의 URG-04LX-UG01 LiDAR 센서를 작동시키는 문
     ```
     sudo chmod a+rw /dev/ttyACM0
     ```
-    명령어를 통해 `ccw-rw-rw-`로 바꾸어준다.
+    명령어를 통해 `ccw-rw-rw-`로 바꾸어준다.<br>
+    (이 과정은 USB를 빼고 다시 꽂을 경우, 다시 수행해 주어야 한다.)
 
 3. 실행
 <br>
