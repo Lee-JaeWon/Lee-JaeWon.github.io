@@ -6,7 +6,7 @@ toc: true
 
 ---
 
-## Hi there, I'm Lee Jae Won 👋  
+## Hi there, I'm Lee Jaewon 👋  
 
 **I am studying at the Department of Robotics of Kwangwoon University.**
 
@@ -20,6 +20,8 @@ toc: true
 
 **If you want to know more about me, please see my [CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf).**
 <br>
+<br>
+**Thank you.**
 
 --------------------------------------  
 <h3 align="left">👉About Me </h3>
