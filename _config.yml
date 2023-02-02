@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "custom" # "air", "aqua", "contrast", "dark", "dirt",
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Lee-JaeWon's Blog"
+title                    : "Lee-Jaewon's Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Lee Jae Won"
+name                     : "Lee Jaewon"
 description              : "Tech Blogs to Study and Organize"
 url                      : "https://lee-jaewon.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -101,7 +101,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Lee Jae Won"
+  name             : "Lee Jaewon"
   avatar           : "/assets/Profile_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "B.S. Student, Department of **Robotics**."
   location         : "Seoul, Republic of Korea"
