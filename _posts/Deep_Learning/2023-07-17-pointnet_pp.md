@@ -81,19 +81,19 @@ PointNet은 single max pooling operation을 사용하여 전체 point set를 집
 새로운 아키텍처는 포인트의 hierarchical grouping을 구축하고 hierarchy을 따라 점점 더 큰 local regions을 추상화한다.<br><br>
 hierarchical structure는 많은 집합 추상화 수준으로 구성된다(Figure 2).<br><br>
 각 level에서 points 집합이 처리되고 추상화되어 더 적은 수의 요소로 새 집합을 생성한다.<br><br>
-- Sampling layer : input points에서 points 집합을 선택하여 **local regions의 centroid를 정의**
-- Grouping layer : 이후, 다음 중심 주위에 “neighboring” points을 찾아 **local region sets을 구성**
-- PointNet layer : local region patterns을 **feature vectors로 encode**하기 위해 **mini-PointNet을 사용**
+- **Sampling layer** : input points에서 points 집합을 선택하여 **local regions의 centroid를 정의**
+- **Grouping layer** : 이후, 다음 중심 주위에 “neighboring” points을 찾아 **local region sets을 구성**
+- **PointNet layer** : local region patterns을 **feature vectors로 encode**하기 위해 **mini-PointNet을 사용**
 
 <br>
 
-- Sampling layer
+- **Sampling layer**<br>
 입력 포인트 $\{x_1, x_2,..., x_n\}$이 주어진 경우, interative FPS(farthest point sampling)을 사용하여 $\{x_{i1}, x_{i2},..., x_{im}\}$의 하위 집합을 선택.<br>(이때 FPS는 계속 멀리있는 점을 위주로 sampling 하기 위해 돌아다님.)<br><br>
 즉, $x_{ij}$는 집합 $\{x_{i1}, x_{i2}, ..., x_{ij-1}\}$에서 나머지 포인트에 대해 가장 멀리 떨어져 있는 포인트(미터 단위)<br><br>
 무작위 표본 추출에 비해 동일한 수의 중심 포인트가 주어졌을 때 전체 포인트 세트에 대한 적용 범위가 더 좋다.
 <p align="center"><img src="/MyPDF/PNPP(2).png" width = "500" ></p>
 
-- Grouping layer
+- **Grouping layer**<br>
 d-dim coordinates, C-dim point feature, N points<br>
 (d=3, N은 pointcloud점의 개수,3의 3차원, C은 학습을 통해서 알아내야 할 point의 feature)
 <br><br>
@@ -101,15 +101,15 @@ d-dim coordinates, C-dim point feature, N points<br>
 출력은 $N' \times K \times (d + C)$ 크기의 포인트 집합 그룹.<br><br>
 여기서 각 그룹은 로컬 영역에 해당하며 K는 중심 포인트 주변의 포인트 수.<br><br>
 Sampling과 Grouping을 거치면 $N_1 \times K \times (3 + C)$로 K개의 그룹으로 표현할 수 있고 PointNet을 통해 학습을 한 결과는 $N_1 \times (3 + C)$로 K개의 그룹이 각각의 local feature를 학습한 결과로 나타나게 된다.<br><br>
-이 과정을 반복하면 마치 CNN이 hierarchy하게 feature를 추출하는 방법과 유사하게 low-level부터 high-level까지 다양한 feature를 뽑는다.<br><br>
+이 과정을 반복하면 마치 CNN이 hierarchy하게 feature를 추출하는 방법과 유사하게 low-level부터 high-level까지 다양한 feature를 뽑는다.<br>
 ([https://jaehoon-daddy.tistory.com/47](https://jaehoon-daddy.tistory.com/47))
 <br><br>
-Grouping을 위해서는 Ball query가 사용됨. 이는 특정 반경 내에 있는 점들을 찾는 과정을 말한다.
+Grouping을 위해서는 **Ball query**가 사용됨. 이는 특정 반경 내에 있는 점들을 찾는 과정을 말한다.
 <br><br>
-Ball Query는 쿼리 포인트로부터 특정 반경 내에 있는 모든 포인트들을 찾는 과정을 수행.구현에서는 K의 상한을 설정하여 반경 내에 속하는 포인트들을 찾는다.<br><br>
+Ball Query는 쿼리 포인트로부터 **특정 반경 내에 있는 모든 포인트들을 찾는 과정을 수행**.구현에서는 K의 상한을 설정하여 반경 내에 속하는 포인트들을 찾는다.<br><br>
 다른 대안으로는 K 최근접 이웃(K nearest neighbor, kNN) 검색이 있다.<br>kNN은 고정된 수의 이웃 포인트를 찾는 방식이며, kNN과 비교했을 때, Ball Query는 로컬 이웃을 고정된 영역 규모로 보장하여 로컬 영역 특징을 공간적으로 일반화하는 데 더 유용하다.<br><br>
 따라서, Ball Query는 PointNet++의 Grouping layer에서 사용되며, 로컬 영역을 정의하고 해당 영역 내의 포인트들을 선택하는 역할을 수행.<br><br>
 이를 통해 PointNet++은 입력 포인트 클라우드를 로컬 영역으로 구분하고, 각 영역에서 세밀한 기하 구조를 포착할 수 있다.<br><br>
 <p align="center"><img src="/MyPDF/PNPP(3).png" width = "500" ></p>
 
-- PointNet layer : 
+- **PointNet layer**<br>
