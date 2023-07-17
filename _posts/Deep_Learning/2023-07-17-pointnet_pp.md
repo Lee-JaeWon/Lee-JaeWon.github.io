@@ -81,6 +81,7 @@ PointNet은 single max pooling operation을 사용하여 전체 point set를 집
 새로운 아키텍처는 포인트의 hierarchical grouping을 구축하고 hierarchy을 따라 점점 더 큰 local regions을 추상화한다.<br><br>
 hierarchical structure는 많은 집합 추상화 수준으로 구성된다(Figure 2).<br><br>
 각 level에서 points 집합이 처리되고 추상화되어 더 적은 수의 요소로 새 집합을 생성한다.<br><br>
+The **set abstraction** level is made of three key layers:<br>
 - **Sampling layer** : input points에서 points 집합을 선택하여 **local regions의 centroid를 정의**
 - **Grouping layer** : 이후, 다음 중심 주위에 “neighboring” points을 찾아 **local region sets을 구성**
 - **PointNet layer** : local region patterns을 **feature vectors로 encode**하기 위해 **mini-PointNet을 사용**
@@ -118,7 +119,77 @@ Ball Query는 쿼리 포인트로부터 **특정 반경 내에 있는 모든 포
 출력 데이터 크기는 $N' \times (d + C')$이다.<br><br>
 (여기서 local frame 변환을 수행한다. 이유는 순서 없는 데이터에서는 인접한 점들 사이의 상대적인 위치와 거리 정보를 쉽게 파악하기 어렵다. 따라서 각 점의 좌표를 중심점을 기준으로 상대적인 좌표로 변환하여 로컬 프레임을 만들어주는 것이다.)<br><br>
 지역 영역 내의 각 점 $i$와 각 공간적 차원 $j$ (예: x, y, z)에 대해, $x^{(j)}_i$는 $x^{(j)}_i = x^{(j)}_i - \hat{x}^{(j)}$ 를 통해 local frame으로 변환된다.<br><br>
-PointNet 레이어는 개별 점을 처리하기 위해 PointNet을 활용된다.<br><br>
-PointNet은 개별 점을 처리하기 위해 설계된 신경망 아키텍처로, 상대적 좌표(변환된 점)와 점과 관련된 추가적인 특징을 입력으로 받는다.<br><br>상대적 좌표와 점의 특징을 결합함으로써, PointNet은 지역 영역 내의 점 간 관계를 포착하고 의미 있는 특징을 학습할 수 있다.<br><br>
+PointNet 레이어는 개별 점을 처리하기 위해 활용된다.<br><br>
+PointNet은 개별 점을 처리하기 위해 설계된 신경망 아키텍처로, **상대적 좌표(변환된 점)**와 점과 관련된 **추가적인 특징**을 **입력**으로 받는다.<br><br>상대적 좌표와 점의 특징을 결합함으로써, PointNet은 지역 영역 내의 **점 간 관계를 포착**하고 **의미 있는 특징을 학습**할 수 있다.<br><br>
 
 ## 3.3 Robust Feature Learning under Non-Uniform Sampling Density
+앞에서 논의한 바와 같이, 포인트 집합은 다른 영역에서 **균일하지 않은 밀도를 갖는 것**이 일반적이다.<br><br>
+이러한 **불균일성(non-uniformity)은 포인트 세트 특징 학습에 중요한 문제를 야기**한다.<br><br>
+고밀도 데이터에서 학습된 특징은 희박하게 샘플링된 영역에 대해 일반화되지 않을 수 있다.<br><br>
+따라서 희소 포인트 클라우드에 대해 훈련된 모델은 세분화된 로컬 구조를 인식하지 못할 수 있다.<br><br>
+<br>
+
+이상적으로, **조밀하게 샘플링된 영역에서 가장 미세한 디테일(finest detail)을 포착**하기 위해 가능한 한 포인트 세트를 면밀히 조사하기를 원한다.<br><br>
+그러나 저밀도 지역에서는 sampling 부족으로 인해 local pattern이 손상될 수 있어, 다음과 같은 밀접한 검사(close inspect)는 금지된다.<br><br>
+이 경우, 우리는 더 넓은 범위에서 큰 규모의 패턴을 찾아야 한다.<br><br>
+이 목표를 달성하기 위해 밀도에 적응하는(density adaptive) PointNet 레이어(Figure 3)를 제안하였다.<br>
+<p align="center"><img src="/MyPDF/PNPP(4).png" width = "500" ></p>
+<p align="center">Figure 3</p>
+
+이 레이어는 입력 샘플링 밀도가 **변경될 때** 서로 **다른** 규모의 영역에서 **특징을 결합**하는 방법을 학습한다.<br>
+이러한 방법을 **density adaptive layer**라 한다.<br><br>
+이러한 밀도 적응형 PointNet 레이어를 포함한 계층적 네트워크를 **PointNet++**이라고 부른다.<br><br>
+density adaptive layer방법으로 두 가지 방법을 소개한다.<br><br>
+
+- Multi-scale grouping(MSG)<br>
+이 아이디어는 grouping layer를 서로 다른 scale로 적용하는 것.<br><br>
+각 scale에 해당하는 PointNet을 사용하여 특징을 추출하고, 각 scale에서 추출된 특징들은 Multi-scale feature로 concatenate된다.<br><br>
+
+네트워크를 학습시켜 다중 스케일 특징을 최적으로 결합하는 전략을 학습한다.<br><br>
+이는 각 인스턴스마다 무작위 확률로 입력 점들을 제외시키는 방식인 랜덤 입력 드롭아웃(random input dropout)을 사용하여 수행된다.<br><br>
+
+- Multi-resolution grouping(MRG)<br>
+MRG는 논문에서 채택한 방식<br><br>
+위의 MSG 접근법은 모든 중심 포인트에 대해 대규모 이웃에서 로컬 PointNet을 실행하기 때문에 계산 비용이 많이 든다.<br><br>
+특히 보통 lowest level에서 중심 포인트 수가 상당히 많기 때문에 time cost가 상당하다.<br><br>
+
+Pointnet++에서 set abstraction(sampling+grouping)과정을 5번 진행한다고 가정하였을때 1번째 진행하여 얻을 feature vector부터 5번째 진행하여 얻은 feature vector까지 concat하여 모든 level의 정보를 활용(해당 부분은 정확히 이해 안되서 참고자료에서 따왔습니다.)<br>
+([https://jaehoon-daddy.tistory.com/47](https://jaehoon-daddy.tistory.com/47))
+<br><br>
+Figure 3의 (b)를 살펴보면 왼쪽 벡터는 low level $L_{i-1}$의 각 low level의 특징을 요약하는 과정을 통해 얻어진다.<br><br>
+오른쪽에 있는 벡터는 단일 PointNet을 사용하여 로컬 지역 내의 모든 원시 점을 직접 처리하여 얻은 특징이다.<br><br>
+이를 concat한다.<br><br>
+이는 로컬 영역의 밀도가 높을 때와 낮을 때 신뢰도를 달리 갖는다.<br><br>
+
+**로컬 영역의 밀도가 낮을 때**, 첫 번째 벡터는 두 번째 벡터보다 신뢰도가 낮을 수 있는데, 첫 번째 벡터는 첫 번째 벡터(왼쪽)를 계산하는 부분 영역이 **더 희박한 포인트를 포함**하고 표본 추출 결핍으로 더 고통(suffer) 받기 때문이다.<br><br>
+이러한 경우, 두 번째 벡터는 더 높은 가중치를 부여해야 한다.<br><br>
+<br>
+
+반면에, **로컬 영역의 밀도가 높을 때**, 첫 번째 벡터는 더 높은 해상도에서 낮은 수준에서 재귀적으로 검사할 수 있는 능력을 가지고 있기 때문에 **더 미세한 세부 정보를 제공**한다.<br><br>
+
+MSG와 비교하여, 이 방법은 가장 낮은 수준에서 대규모 이웃에서 특징 추출을 피하기 때문에 계산적으로 더 효율적이다.<br><br>
+(이해 : MSG는 가장 low level에서 다양한 scale로 grouping을 시도하기에 low level에서의 cost가 증가)
+<br><br>
+
+## 3.4 Point Feature Propagation for Set Segmentation
+set abstraction layer에서는 original point set이 subsampled(다운 샘플링)된다.<br><br>
+그러나 Semantic point labeling과 같은 set segmentation 작업에서는 모든 원본 점에 대한 점 특징을 얻고자 한다.<br><br>
+하나의 해결책은 항상 모든 점을 중심점으로 샘플링하는 것이다. 그러나 이는 계산 비용이 매우 높아진다. <br><br>
+또 다른 방법은 다운 샘플링된 점으로부터 원본 점으로까지 특징을 전파(propagate)하는 것이다.<br><br>
+distance based interpolation과 across level skip link를 사용한 계층적 전파 전략을 채택하였다.<br><br>
+interpolate된 피쳐는 설정된 set abstraction level의 feature와 concat된다.<br><br>
+보간을 위한 많은 선택 중에서 k nearest neighbor을 기반으로 하는 역거리 가중 평균을 사용한다.<br><br>
+이 다음 concatenated feature는 unit PointNet을 통과한다.<br><br>
+요약 : interpolation을 통해 feature propagation을 진행하고 보간된 피쳐는 이전의 set abstraction level의 feature와 concat. 이후 unit PointNet을 통과.<br><br>
+<p align="center"><img src="/MyPDF/PNPP(5).png" width = "500" ></p>
+
+# Experiments
+## Point Set Classification in Euclidean Metric Space
+<p align="center"><img src="/MyPDF/PNPP(6).png" width = "500" ></p>
+
+## Point Set Segmentation for Semantic Scene Labeling
+<p align="center"><img src="/MyPDF/PNPP(7).png" width = "500" ></p>
+<p align="center"><img src="/MyPDF/PNPP(8).png" width = "500" ></p>
+
+## Point Set Classification in Non-Euclidean Metric Space
+<p align="center"><img src="/MyPDF/PNPP(9).png" width = "500" ></p>
