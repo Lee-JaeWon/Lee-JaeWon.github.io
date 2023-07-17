@@ -113,3 +113,12 @@ Ball Query는 쿼리 포인트로부터 **특정 반경 내에 있는 모든 포
 <p align="center"><img src="/MyPDF/PNPP(3).png" width = "500" ></p>
 
 - **PointNet layer**<br>
+이 레이어에서 입력은 데이터 크기가 $N' \times K \times (d+C)$인 포인트의 $N'$ local region<br><br>
+출력에서 각 local region은 중심과 중심 이웃을 인코딩한 로컬 특징에 의해 추상화한다.<br><br>
+출력 데이터 크기는 $N' \times (d + C')$이다.<br><br>
+(여기서 local frame 변환을 수행한다. 이유는 순서 없는 데이터에서는 인접한 점들 사이의 상대적인 위치와 거리 정보를 쉽게 파악하기 어렵다. 따라서 각 점의 좌표를 중심점을 기준으로 상대적인 좌표로 변환하여 로컬 프레임을 만들어주는 것이다.)<br><br>
+지역 영역 내의 각 점 $i$와 각 공간적 차원 $j$ (예: x, y, z)에 대해, $x^{(j)}_i$는 $x^{(j)}_i = x^{(j)}_i - \hat{x}^{(j)}$ 를 통해 local frame으로 변환된다.<br><br>
+PointNet 레이어는 개별 점을 처리하기 위해 PointNet을 활용된다.<br><br>
+PointNet은 개별 점을 처리하기 위해 설계된 신경망 아키텍처로, 상대적 좌표(변환된 점)와 점과 관련된 추가적인 특징을 입력으로 받는다.<br><br>상대적 좌표와 점의 특징을 결합함으로써, PointNet은 지역 영역 내의 점 간 관계를 포착하고 의미 있는 특징을 학습할 수 있다.<br><br>
+
+## 3.3 Robust Feature Learning under Non-Uniform Sampling Density
