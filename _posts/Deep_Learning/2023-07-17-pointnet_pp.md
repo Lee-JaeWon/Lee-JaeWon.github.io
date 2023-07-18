@@ -144,7 +144,6 @@ density adaptive layer방법으로 두 가지 방법을 소개한다.<br><br>
 - Multi-scale grouping(MSG)<br>
 이 아이디어는 grouping layer를 서로 다른 scale로 적용하는 것.<br><br>
 각 scale에 해당하는 PointNet을 사용하여 특징을 추출하고, 각 scale에서 추출된 특징들은 Multi-scale feature로 concatenate된다.<br><br>
-
 네트워크를 학습시켜 다중 스케일 특징을 최적으로 결합하는 전략을 학습한다.<br><br>
 이는 각 인스턴스마다 무작위 확률로 입력 점들을 제외시키는 방식인 랜덤 입력 드롭아웃(random input dropout)을 사용하여 수행된다.<br><br>
 
@@ -152,7 +151,6 @@ density adaptive layer방법으로 두 가지 방법을 소개한다.<br><br>
 MRG는 논문에서 채택한 방식<br><br>
 위의 MSG 접근법은 모든 중심 포인트에 대해 대규모 이웃에서 로컬 PointNet을 실행하기 때문에 계산 비용이 많이 든다.<br><br>
 특히 보통 lowest level에서 중심 포인트 수가 상당히 많기 때문에 time cost가 상당하다.<br><br>
-
 Pointnet++에서 set abstraction(sampling+grouping)과정을 5번 진행한다고 가정하였을때 1번째 진행하여 얻을 feature vector부터 5번째 진행하여 얻은 feature vector까지 concat하여 모든 level의 정보를 활용(해당 부분은 정확히 이해 안되서 참고자료에서 따왔습니다.)<br>
 ([https://jaehoon-daddy.tistory.com/47](https://jaehoon-daddy.tistory.com/47))
 <br><br>
@@ -160,13 +158,10 @@ Figure 3의 (b)를 살펴보면 왼쪽 벡터는 low level $L_{i-1}$의 각 low 
 오른쪽에 있는 벡터는 단일 PointNet을 사용하여 로컬 지역 내의 모든 원시 점을 직접 처리하여 얻은 특징이다.<br><br>
 이를 concat한다.<br><br>
 이는 로컬 영역의 밀도가 높을 때와 낮을 때 신뢰도를 달리 갖는다.<br><br>
-
 **로컬 영역의 밀도가 낮을 때**, 첫 번째 벡터는 두 번째 벡터보다 신뢰도가 낮을 수 있는데, 첫 번째 벡터는 첫 번째 벡터(왼쪽)를 계산하는 부분 영역이 **더 희박한 포인트를 포함**하고 표본 추출 결핍으로 더 고통(suffer) 받기 때문이다.<br><br>
 이러한 경우, 두 번째 벡터는 더 높은 가중치를 부여해야 한다.<br><br>
 <br>
-
 반면에, **로컬 영역의 밀도가 높을 때**, 첫 번째 벡터는 더 높은 해상도에서 낮은 수준에서 재귀적으로 검사할 수 있는 능력을 가지고 있기 때문에 **더 미세한 세부 정보를 제공**한다.<br><br>
-
 MSG와 비교하여, 이 방법은 가장 낮은 수준에서 대규모 이웃에서 특징 추출을 피하기 때문에 계산적으로 더 효율적이다.<br><br>
 (이해 : MSG는 가장 low level에서 다양한 scale로 grouping을 시도하기에 low level에서의 cost가 증가)
 <br><br>
