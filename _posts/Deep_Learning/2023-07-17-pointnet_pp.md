@@ -1,5 +1,5 @@
 ---
-title : "PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space 리뷰"
+title : "[논문 리뷰] PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space"
 category :
     - Deep_Learning_Study
 tag :
