@@ -65,7 +65,7 @@ hierarchical structure가 추가된 PointNet의 확장이다.<br><br>
 ## 3.1 Review of PointNet
 Given an **unordered** point set $\{ x_1,x_2,...,x_n \}$ with $x_i \in \mathbb{R}^d$.<br><br>
 $f:X \rightarrow R$ <br><br>
-$f(x_1,x_2,...,x_n)=\gamma(\underset{i=1,...,n}{\overset{}{_{}^{}MAX_{}^{}}}\{ h(x_i) \})$
+$f(x_1,x_2,...,x_n)=\gamma(\underset{i=1,...,n}{MAX}(h(x_i)))$ <br>
 <br><br>
 $where \ \ \gamma \ and \ \ h$ -> MLP
 <br><br>
