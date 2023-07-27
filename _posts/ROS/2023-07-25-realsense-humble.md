@@ -49,6 +49,19 @@ sudo apt install ros-humble-librealsense2*
 
 다음과 같이 설치하는 명령어도 제공한다.<br><br>
 
+## 에러
+만약 `colcon build`수행 시 다음과 같은 에러가 발생하면,<br>
+
+<p align="center"><img src="/MyPDF/realsense(6).png" width = "500" ></p>
+
+
+아래 패키지를 설치해주어야 한다.<br>
+
+```
+sudo apt-get install ros-humble-diagnostic-updater
+```
+<br>
+
 # 실행
 카메라를 PC와 연결 후,<br>
 노드를 실행시켰다.<br><br>
