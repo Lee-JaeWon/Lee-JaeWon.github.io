@@ -10,6 +10,8 @@ toc: true
 
 **I am studying at the Department of Robotics of Kwangwoon University.**
 
+<img src="/Profile/leejaewon.jpg" width = "150" >
+
 ### I'm Interest in   
 🔎 **Multi Robot System**<br>
 🔎 **Robot Navigation, Exploration**<br>
