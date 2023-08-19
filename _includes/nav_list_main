@@ -42,7 +42,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "Deep_Learning_Study" %}
-                        <li><a href="/categories/Deep_Learning_Study" class="">Deep Learning Study ({{category[1].size}})</a></li>
+                        <li><a href="/categories/Deep_Learning_Study" class="">Deep Learning ({{category[1].size}})</a></li>
                     {% endif %}
                     
                     {% if category[0] == "Reinforcement_Learning" %}
@@ -50,7 +50,7 @@
                     {% endif %}
 
                     {% if category[0] == "Pytorch" %}
-                        <li><a href="/categories/Pytorch" class="">Pytorch ({{category[1].size}})</a></li>
+                        <li><a href="/categories/Pytorch" class="">PyTorch ({{category[1].size}})</a></li>
                     {% endif %}
 
                     <!--{% if category[0] == "Research" %}-->
