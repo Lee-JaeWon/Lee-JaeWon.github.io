@@ -14,13 +14,13 @@ toc: true
 
 ### I'm Interest in   
 🔎 **Multi Robot System**<br>
-🔎 **SLAM**<br>
-🔎 **Robot Navigation, Exploration**<br>
+🔎 **SLAM, Localization**<br>
+🔎 **Deep Learning**<br>
 🔎 **Cooperative Autonomous Driving - Smart Road Technology**<br>
 
 <br>
 
-**If you want to know more about me, please see my [CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf).**
+**If you want to know more about me, please see my [CV](https://github.com/Lee-JaeWon/Lee-JaeWon_CV/blob/main/Lee-JaeWon_CV.pdf)<br>or please send me an [email](https://lee-jaewon.github.io/Aboutme/email).**
 <br>
 <br>
 **Thank you.**
@@ -28,19 +28,19 @@ toc: true
 --------------------------------------  
 <h3 align="left">👉About Me </h3>
 
-* Undergraduate student at [CILAB](https://cilab.yonsei.ac.kr/), School of Electrical and Electronic Engineering, Yonsei University. (2023.7~)
+* Undergraduate student intern at [CILAB](https://cilab.yonsei.ac.kr/), School of Electrical and Electronic Engineering, Yonsei University. (2023.7~)
 
 * **B.S. Student**, [Department of Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~2024.2)
     * Major in Intelligent System
 
 * Club : [BARAM](https://cafe.naver.com/roboticsbaram) (Robotics Academic Group). (2020.3~2024.2)
-    * Club Vice President (2022.3~2023.1)
+    * Club Vice President (2022.2~2023.1)
 
-* 2022 Open Source Contribution Academy, Mentee, Translating [PyTorch Hub](https://pytorch.org/hub/) into Korean. (2022.7~2022.10)
+* 2022 Open Source Contribution Academy, Mentee, Translating [PyTorch Hub](https://pytorch.org/hub/) into [Korean](https://pytorch.kr/hub/). (2022.7~2022.10)
 
-* R&D Intern, [ROBOMATION](https://robomation.net/). (2022.7~2022.8)
+* Research & Development Intern, [ROBOMATION](https://robomation.net/). (2022.7~2022.8)
 
-* Undergraduate student at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
+* Undergraduate student intern at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
 
 <br>
 
