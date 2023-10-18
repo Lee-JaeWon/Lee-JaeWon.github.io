@@ -22,7 +22,7 @@ Ubuntu에서 **display 연결 오류** 및 **원활히 동작하지 않는 것**
 <br>
 
 # 이전 포스팅 : Nouveau
-이전 [Nouveau 비활성화에 관련한 포스팅](https://lee-jaewon.github.io/ubuntu/CUDA/)을 올린 적이 있습니다.
+이전에 [Nouveau 비활성화에 관련한 포스팅](https://lee-jaewon.github.io/ubuntu/CUDA/)을 올린 적이 있습니다.
 
 많은 분들이 참고해주고 계시고, 저 또한 아직도 Ubuntu 설치 후, [해당 방법](https://lee-jaewon.github.io/ubuntu/CUDA/)을 사용해서 충돌을 막습니다.
 
