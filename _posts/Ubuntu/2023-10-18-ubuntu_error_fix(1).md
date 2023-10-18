@@ -1,5 +1,5 @@
 ---
-title : "[Ubuntu 오류 해결] 외부 모니터 연결 안됨 & ubuntu 진입 안됨 & 버벅임 & Asus 이슈 -> Display mode 바꾸기"
+title : "[Ubuntu 20.04 오류 해결] 외부 모니터 연결 안됨 & ubuntu 진입 안됨 & 버벅임 & ASUS 이슈 -> Display mode 바꾸기"
 category :
     - Ubuntu
 tag :
@@ -10,7 +10,7 @@ comments: true
 sidebar_main: true
 ---
 
-Ubuntu에서 display연결 오류 및 원활히 동작하지 않는 것을 해결한 포스팅입니다.
+Ubuntu에서 **display 연결 오류** 및 **원활히 동작하지 않는 것**을 해결한 포스팅입니다.
 
 포스팅 및 문제 해결에 도움을 주신 [Ilju Lee](https://github.com/leeilju)님께 감사드립니다!
 
@@ -22,11 +22,11 @@ Ubuntu에서 display연결 오류 및 원활히 동작하지 않는 것을 해�
 <br>
 
 # 이전 포스팅 : Nouveau
-이전 [Nouveau 비활성화에 관련한 포스팅](https://lee-jaewon.github.io/ubuntu/CUDA/)을 올린적이 있습니다.
+이전 [Nouveau 비활성화에 관련한 포스팅](https://lee-jaewon.github.io/ubuntu/CUDA/)을 올린 적이 있습니다.
 
 많은 분들이 참고해주고 계시고, 저 또한 아직도 Ubuntu 설치 후, [해당 방법](https://lee-jaewon.github.io/ubuntu/CUDA/)을 사용해서 충돌을 막습니다.
 
-이때 포스팅 당시 생긴 문제가 nouveau와 Nvidia GPU와의 충돌이었고,
+이때 포스팅 당시 생긴 문제가 **nouveau와 Nvidia GPU와의 충돌**이었고,
 
 당시 언급했었던 발생한 문제점은 아래와 같았습니다.
 
