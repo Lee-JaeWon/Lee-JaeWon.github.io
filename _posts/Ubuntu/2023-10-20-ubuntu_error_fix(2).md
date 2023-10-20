@@ -22,7 +22,7 @@ Windows 저장소가 RAID로 묶인 경우, Ubuntu가 설치되지 않는 현상
 # 이번 문제
 이번에 ROG Strix 시리즈에 2TB SSD 2개가 독립적으로 장착된 PC에 Ubuntu를 설치하고자 하였습니다.<br>
 
-windows11과 듀얼 부팅하였고, 이전 방법처럼 늘 하던대로 윈도우에서 일정부분을 Unlocated하고
+windows11과 듀얼 부팅하였고, 이전 방법처럼 늘 하던대로 윈도우에서 일정부분을 Unallocated하고
 
 이 부분을 Ubuntu에서 ext4와 linux-swap으로 잡고 설치하려했습니다.
 
@@ -67,7 +67,7 @@ Windows가 이미 많이 세팅되었고, heavy하다면 **사용할 수 없는 
 
 RAID Array해제는 [ASUS 홈페이지](https://www.asus.com/kr/support/FAQ/1046579/#a2)를 참고했으며,
 
-아래 사진들과 같습니다. 과정 자체는 간단합니다.
+과정 자체는 간단합니다.
 
 [ASUS 홈페이지](https://www.asus.com/kr/support/FAQ/1046579/#a2)에서 동일하게 수행해주시면 됩니다.
 
