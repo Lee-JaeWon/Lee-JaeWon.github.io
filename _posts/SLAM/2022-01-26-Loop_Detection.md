@@ -9,8 +9,13 @@ toc_sticky: true
 comments: true
 sidebar_main: true
 ---
-
 Loop Detection에 대한 개념과, Kitti Dataset에서 DBoW2라이브러리를 이용해 Loop Detection을 진행하는 포스팅입니다.
+
+<br>
+
+**++ 처음 공부할 당시 적은 포스팅이라, 내용에 오류가 많습니다. 지적해주신 분들에게 감사드립니다.**<br>
+**틀린 부분은 찾아서 보완할 수 있도록 하겠습니다.**
+
 <br><br>
 <p align="center"><img src="/MyPDF/week_5_2.jpg" width = "800" ></p>
 
