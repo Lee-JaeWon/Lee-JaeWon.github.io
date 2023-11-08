@@ -1,5 +1,5 @@
 ---
-title : "ROS2 Humble - Realsense D345 실행"
+title : "ROS2 Humble - Realsense D435 실행"
 category :
     - ROS
 tag :
@@ -9,7 +9,7 @@ toc_sticky: true
 comments: true
 sidebar_main: true
 ---
-ROS2 Humble - Realsense D345 실행
+ROS2 Humble - Realsense D435 실행
 
 
 # Realsense
