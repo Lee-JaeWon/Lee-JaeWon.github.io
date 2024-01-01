@@ -15,8 +15,7 @@ toc: true
 ### I'm Interest in   
 🔎 **Multi Robot System**<br>
 🔎 **SLAM, Localization**<br>
-🔎 **Deep Learning**<br>
-🔎 **Cooperative Autonomous Driving - Smart Road Technology**<br>
+🔎 **Deep Learning, Map Representation**<br>
 
 <br>
 
@@ -26,12 +25,15 @@ toc: true
 **Thank you.**
 
 --------------------------------------  
+
+<h3 align="left">📖Education </h3>
+
+* **B.S. Student**, [Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~2024.2)
+    * Major in Intelligent System
+
 <h3 align="left">👉About Me </h3>
 
 * Undergraduate student intern at [CILAB](https://cilab.yonsei.ac.kr/), School of Electrical and Electronic Engineering, Yonsei University. (2023.7~)
-
-* **B.S. Student**, [Department of Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~2024.2)
-    * Major in Intelligent System
 
 * Club : [BARAM](https://cafe.naver.com/roboticsbaram) (Robotics Academic Group). (2020.3~2024.2)
     * Club Vice President (2022.2~2023.1)
@@ -40,7 +42,7 @@ toc: true
 
 * Research & Development Intern, [ROBOMATION](https://robomation.net/). (2022.7~2022.8)
 
-* Undergraduate student intern at [Robotics & A.I. Lab.](http://robotailab.net/), Department of Robotics, Kwangwoon University. (2022.1~2022.6)
+* Undergraduate student intern at [Robotics & A.I. Lab.](http://robotailab.net/), Robotics, Kwangwoon University. (2022.1~2022.6)
 
 <br>
 
@@ -52,3 +54,6 @@ Contact me. [Jaewon Lee's e-mail](email)
 
 ## Linkedin
 [Linkedin : LeeJaewon](https://www.linkedin.com/in/jaewon-lee-profile/)
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Flee-jaewon.github.io%2FAboutme%2F&count_bg=%235988D7&title_bg=%23555555&icon=&icon_color=%238C98ED&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+
