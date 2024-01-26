@@ -28,8 +28,11 @@ toc: true
 
 <h3 align="left">📖Education </h3>
 
-* **B.S. Student**, [Robotics](https://cni.kw.ac.kr/), Kwangwoon University. (2020.3~2024.2)
-    * Major in Intelligent System
+* **Yonsei University**, Seoul, South Korea
+    * **Combined M.S. & Ph.D.** in [School of Electrical and Electronic Engineering](https://ee.yonsei.ac.kr/ee/index.do) (2024.3~)(Expected)
+
+* **Kwangwoon University**, Seoul, South Korea
+    * **B.S.** in [Robotics](https://cni.kw.ac.kr/) (2020.3~2024.2)
 
 <h3 align="left">👉About Me </h3>
 
