@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Lee Jaewon"
   avatar           : "/assets/Profile_photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "B.S. Student, Department of **Robotics**."
+  bio              : ""
   location         : "Seoul, Republic of Korea"
   email            : "jawwoni@naver.com"
   links:
