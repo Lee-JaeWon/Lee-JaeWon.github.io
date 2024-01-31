@@ -29,14 +29,14 @@ toc: true
 <h3 align="left">📖Education </h3>
 
 * **Yonsei University**, Seoul, South Korea
-    * **Combined M.S. & Ph.D.** in [School of Electrical and Electronic Engineering](https://ee.yonsei.ac.kr/ee/index.do) (2024.3~)(Expected)
+    * **Combined M.S. & Ph.D.** in [CILAB](https://cilab.yonsei.ac.kr/), [School of Electrical and Electronic Engineering](https://ee.yonsei.ac.kr/ee/index.do) (2024.3~)(Expected)
 
 * **Kwangwoon University**, Seoul, South Korea
     * **B.S.** in [Robotics](https://cni.kw.ac.kr/) (2020.3~2024.2)
 
 <h3 align="left">👉About Me </h3>
 
-* Undergraduate student intern at [CILAB](https://cilab.yonsei.ac.kr/), School of Electrical and Electronic Engineering, Yonsei University. (2023.7~)
+* Undergraduate student intern at [CILAB](https://cilab.yonsei.ac.kr/), School of Electrical and Electronic Engineering, Yonsei University. (2023.7~2024.2)
 
 * Club : [BARAM](https://cafe.naver.com/roboticsbaram) (Robotics Academic Group). (2020.3~2024.2)
     * Club Vice President (2022.2~2023.1)
