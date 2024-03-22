@@ -1,4 +1,6 @@
 main:
+  - title: "Trouble Shooting"
+    url: /error/
   - title: "About Me & CV"
     url: /Aboutme/
   - title: "Posts"
