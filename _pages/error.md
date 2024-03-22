@@ -10,8 +10,9 @@ sidebar_main: true
 
 # Trouble Shooting Page
 환경 구축 및 코딩 시 발생하는 여러 Error를 **간단히** 기록해놓는 페이지입니다.  
-This page is a simple place to record various errors you encounter when building or coding in your environment.   
-**please feel free to contribute.**
+This page is a simple page to record various errors you encounter when building your environment or coding.<br><br>
+**please feel free to contribute.**<br>
+(You can contribute using the comment box below, open an issue in the repository directly, or whatever works best for you.)
 
 ## Format
 
