@@ -42,7 +42,7 @@
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
                     {% if category[0] == "3d_reconstruction" %}
-                        <li><a href="/categories/Deep_Learning_Study" class="">3D Reconstruction(GS, NeRF) ({{category[1].size}})</a></li>
+                        <li><a href="/categories/3d_reconstruction" class="">3D Reconstruction(GS, NeRF) ({{category[1].size}})</a></li>
                     {% endif %}
                     {% if category[0] == "Deep_Learning_Study" %}
                         <li><a href="/categories/Deep_Learning_Study" class="">Deep Learning ({{category[1].size}})</a></li>
