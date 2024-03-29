@@ -2,7 +2,7 @@ main:
   - title: "Trouble Shooting"
     url: /error/
   - title: "About Me & CV"
-    url: /Aboutme/
+    url: https://lee-jaewon.github.io/leejaewon-cv-page/
   - title: "Posts"
     url: /categories/
   - title: "Email"
