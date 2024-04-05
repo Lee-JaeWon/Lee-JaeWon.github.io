@@ -44,7 +44,7 @@ cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=75 # 75는 조절해야할 수도 �
 **Topic**:<br>
 root directory에 존재하는 파이썬 클래스나 파일들이 import되지 않는 경우.<br>
 **How to do**:<br>
-```
+```bash
 # In terminal
 export PYTHONPATH=$PYTHONPATH:/path/to/Your_package
 ```
