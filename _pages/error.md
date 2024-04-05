@@ -40,6 +40,16 @@ cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=75 # 75는 조절해야할 수도 �
 [ssh 연결](https://jooky.tistory.com/2)<br>
 [Vscode 연결](https://bosungtea9416.tistory.com/entry/VScode%EB%A1%9C-%EC%84%9C%EB%B2%84%EC%97%90-SSH-%EC%9B%90%EA%B2%A9-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0)
 
+### 3. Python Import Error
+**Topic**:<br>
+root directory에 존재하는 파이썬 클래스나 파일들이 import되지 않는 경우.<br>
+**How to do**:<br>
+```
+# In terminal
+export PYTHONPATH=$PYTHONPATH:/path/to/Your_package
+```
+
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
