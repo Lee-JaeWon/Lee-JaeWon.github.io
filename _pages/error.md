@@ -58,6 +58,29 @@ python script 실행 시 GPU 선택<br>
 CUDA_VISIBLE_DEVICES=0,3 python3 your_train.py
 ```
 
+### 5. libX11.so.6: cannot open shared object file: No such file or directory
+**Topic**:<br>
+Error: `libX11.so.6: cannot open shared object file: No such file or directory`<br>
+**How to do**:<br>
+```bash
+# In terminal
+apt-get update
+apt-get install -y libsm6 libxext6 libxrender-dev
+```
+
+### 6. libGL.so.1, libgthread-2.0.so.0 Error
+**Topic**:<br>
+`OSError: libGL.so.1: cannot open shared object file: No such file or directory` &&<br>
+`ImportError: libgthread-2.0.so.0: cannot open shared object file: No such file or directory`<br>
+**How to do**:<br>
+```bash
+# In terminal
+apt-get update
+apt-get install -y libgl1-mesa-glx
+apt-get install -y libglib2.0-0
+```
+**Reference**:<br>
+[Link](https://yuevelyne.tistory.com/entry/OpenCV-ImportError-libGLso1-cannot-open-shared-object-file-No-such-file-or-directory)<br>
 
 ### 0. Your title
 **Topic**:<br>
