@@ -25,7 +25,7 @@ This page is a simple page to record various errors you encounter when building 
 **Topic**:<br>
 COLMAP 빌드 시 CUDA 관련 에러 발생<br>
 **How to do**:
-```
+```bash
 cmake .. -GNinja # 이후,
 cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=75 # 75는 조절해야할 수도 있다.
 ```  
@@ -47,6 +47,15 @@ root directory에 존재하는 파이썬 클래스나 파일들이 import되지 
 ```bash
 # In terminal
 export PYTHONPATH=$PYTHONPATH:/path/to/Your_package
+```
+
+### 4. GPU Select
+**Topic**:<br>
+python script 실행 시 GPU 선택<br>
+**How to do**:<br>
+```bash
+# In terminal
+CUDA_VISIBLE_DEVICES=0,3 python3 your_train.py
 ```
 
 
