@@ -11,7 +11,7 @@ sidebar_main: true
 # Trouble Shooting Page
 This page is a simple page to record **various errors or tips** you encounter when building your environment or coding.<br><br>
 **please feel free to contribute.**<br>
-- You can contribute using the comment box below, open an issue in the repository directly, or whatever works best for you.<br>
+- You can contribute using the [comment box below](https://lee-jaewon.github.io/error/#:~:text=LinkedIn-,LEAVE%20A%20COMMENT,-FOLLOW%3A), open an [issue in the repository](https://github.com/Lee-JaeWon/Lee-JaeWon.github.io/issues) directly, or whatever works best for you.<br>
 - I always want this page to be enriching and helpful, and I'm always happy to be pointed out if I'm wrong.
 
 ## Format
