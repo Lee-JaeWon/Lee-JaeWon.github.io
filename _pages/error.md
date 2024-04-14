@@ -98,7 +98,7 @@ apt-get install -y libglib2.0-0
 특정 패키지내의 launch folder내의 launch file을 찾지 못할 때<br>
 **How to do**:
 ```
-# In you package's CMakeLists.txt
+# In your package's CMakeLists.txt
 # Add below code
 install(DIRECTORY
   	launch
