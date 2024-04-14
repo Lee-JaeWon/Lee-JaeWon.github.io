@@ -93,6 +93,19 @@ apt-get install -y libglib2.0-0
 [Link](https://yuevelyne.tistory.com/entry/OpenCV-ImportError-libGLso1-cannot-open-shared-object-file-No-such-file-or-directory)<br>
 
 ---
+### 7. ROS2 can not find *.launch.py
+**Topic**:<br>
+특정 패키지내의 launch folder내의 launch file을 찾지 못할 때<br>
+**How to do**:
+```
+# In you package's CMakeLists.txt
+# Add below code
+install(DIRECTORY
+  	launch
+  	DESTINATION share/${PROJECT_NAME})
+```
+
+---
 
 ### 0. Your title
 **Topic**:<br>
