@@ -106,6 +106,33 @@ install(DIRECTORY
 ```
 
 ---
+### 8. Docker container에서 시각화가 되지 않는 경우(Open3D)
+**Topic**:<br>
+Error:<br>
+```bash
+[Open3D WARNING] GLFW Error: X11: Failed to open display  [19/04 08:11:52]
+[Open3D WARNING] Failed to initialize GLFW [19/04 08:11:52]
+[Open3D WARNING] [DrawGeometries] Failed creating OpenGL window. [19/04 08:11:52]
+```
+<br>
+
+**How to do**:
+
+```bash
+# In local terminal
+echo $DISPLAY
+# -> 1 or 0 ...etc
+```
+
+```bash
+# In your container
+# maybe it can't see "echo $DISPLAY" 's result
+# so,
+
+export DISPLAY:=1 # apply your number
+```
+
+---
 
 ### 0. Your title
 **Topic**:<br>
