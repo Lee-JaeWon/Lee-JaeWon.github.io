@@ -129,7 +129,7 @@ echo $DISPLAY
 # maybe it can't see "echo $DISPLAY" 's result
 # so,
 
-export DISPLAY:=1 # apply your number
+export DISPLAY=:1 # apply your number
 ```
 
 ---
