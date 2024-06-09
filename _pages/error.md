@@ -134,6 +134,16 @@ export DISPLAY=:1 # apply your number
 
 ---
 
+### 9. Download folder with SSH
+**Topic**:<br>
+For downloading files from a remote PC via SSH<br>
+**How to do**:
+```
+scp -r leejaewon@165.xxx.xxx.xxx:/media/leejaewon/ci_leejaewon/SHARE/data_folder /home/otherPC/leejaewon/
+```
+
+---
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
