@@ -146,7 +146,7 @@ scp -r leejaewon@165.xxx.xxx.xxx:/media/leejaewon/ci_leejaewon/SHARE/data_folder
 
 ### 10. ros2 bag file compression
 **Topic**:<br>
-ros2 bag file compression with recorded ros2 bag file<br>
+ros2 bag file compression with **already recorded** ros2 bag file<br>
 **How to do**:
 ```
 ros2 bag convert --input rosbag2_2024_06_12-14_17_31/ --output-options convert.yaml
