@@ -163,6 +163,19 @@ output_bags:
 
 ---
 
+### 11. GPG Key error(with `sudo apt update` is failed)
+**Topic**:<br>
+W: GPG error: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY A4B469963BF863CC<br>
+E: The repository 'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64  InRelease' is not signed.<br>
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.<br>
+N: See apt-secure(8) manpage for repository creation and user configuration details.<br>
+**How to do**:
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
+```
+
+---
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
