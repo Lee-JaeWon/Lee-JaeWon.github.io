@@ -176,6 +176,16 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 
 ---
 
+### 12. libEGL.so.1: cannot open shared object file
+**Topic**:<br>
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory<br>
+**How to do**:
+```
+sudo apt-get install freeglut3-dev
+```
+
+---
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
