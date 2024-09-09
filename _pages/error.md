@@ -186,6 +186,34 @@ sudo apt-get install freeglut3-dev
 
 ---
 
+### 13. Ubuntu 모니터 자동 배치 **xrandr**
+**Topic**:<br>
+Ubuntu에서 모니터 위치를 sh나 명령어를 통해 한 번에 수정하는 방법<br>
+HDMI입력이 바뀔 때 이전 모니터의 위치 설정이 계속 망가져서 대안으로 사용함.<br>
+**How to do**:
+```
+xrandr -q
+```
+를 통해 모니터 상태 확인
+```
+# In your_shell.sh
+# HDMI-0 모니터 설정
+xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --pos 1920x0
+
+# DP-0 모니터 설정
+xrandr --output DP-0 --mode 2240x1400 --rate 60 --pos 790x1080
+
+# DP-3 모니터 설정
+xrandr --output DP-3 --mode 1920x1080 --rate 60 --pos 0x0 --primary
+
+# None-1-1 모니터 설정
+xrandr --output None-1-1 --mode 2240x1400 --rate 60
+
+echo "Monitor settings applied successfully."
+```
+
+---
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
