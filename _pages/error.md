@@ -214,6 +214,27 @@ echo "Monitor settings applied successfully."
 
 ---
 
+### 14. Install cursor ai in ubuntu
+**Topic**:<br>
+Cursor install or update<br>
+**How to do**:
+```
+sudo cat /usr/share/applications/cursor.desktop
+
+[Desktop Entry]
+Name=Cursor
+Exec=/opt/cursor.AppImage
+Icon=/opt/cursor.png
+Type=Application
+Categories=Development;
+```
+```
+sudo chmod +x cursor.AppImage
+/opt$ sudo cp ~/Downloads/cursor.AppImage .
+sudo update-desktop-database
+```
+---
+
 ### 0. Your title
 **Topic**:<br>
 text<br>
