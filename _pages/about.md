@@ -1,6 +1,6 @@
 ---
 title: "About Me & CV"
-permalink: /leejaewon-cv-page/
+permalink: /ljw_cv_page/
 layout: single
 toc: true
 
